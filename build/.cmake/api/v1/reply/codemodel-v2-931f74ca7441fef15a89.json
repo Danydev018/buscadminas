@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -20,7 +20,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "buscaminas_client::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-buscaminas_client-a25b100f650bd0f8cea3.json",
+					"jsonFile" : "target-buscaminas_client-Debug-0225ba9514591fb67978.json",
 					"name" : "buscaminas_client",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "buscaminas_server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-buscaminas_server-d5abf08fbf5c17d49e1f.json",
+					"jsonFile" : "target-buscaminas_server-Debug-6864bccffe6fda2a199f.json",
 					"name" : "buscaminas_server",
 					"projectIndex" : 0
 				}

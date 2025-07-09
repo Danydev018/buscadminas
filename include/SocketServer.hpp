@@ -13,6 +13,7 @@ public:
     void stop();
     void broadcast(const std::string& message);
     std::vector<std::string> receiveAll();
+    int getNumClients() const;
 private:
     int port;
     bool running = false;
@@ -20,6 +21,6 @@ private:
     std::unique_ptr<boost::asio::ip::tcp::acceptor> acceptor;
     std::vector<std::shared_ptr<boost::asio::ip::tcp::socket>> clients;
     std::thread serverThread;
-    std::mutex clientsMutex;
+    mutable std::mutex clientsMutex;
     void acceptClients();
 };

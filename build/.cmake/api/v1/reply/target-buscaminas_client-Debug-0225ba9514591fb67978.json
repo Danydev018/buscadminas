@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "buscaminas_server"
+			"path" : "buscaminas_client"
 		}
 	],
 	"backtrace" : 1,
@@ -27,13 +27,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 31,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 32,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -53,6 +53,12 @@
 	"compileGroups" : 
 	[
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"defines" : 
 			[
 				{
@@ -88,11 +94,15 @@
 			]
 		}
 	],
-	"id" : "buscaminas_server::@6890427a1f51a3e7e1df",
+	"id" : "buscaminas_client::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "",
 				"role" : "flags"
@@ -105,8 +115,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "buscaminas_server",
-	"nameOnDisk" : "buscaminas_server",
+	"name" : "buscaminas_client",
+	"nameOnDisk" : "buscaminas_client",
 	"paths" : 
 	{
 		"build" : ".",
@@ -133,7 +143,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "server/main_server.cpp",
+			"path" : "client/main_client.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

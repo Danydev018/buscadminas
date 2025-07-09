@@ -1,3 +1,14 @@
+
+#include "SocketServer.hpp"
+#include <boost/asio.hpp>
+#include <iostream>
+
+using boost::asio::ip::tcp;
+
+int SocketServer::getNumClients() const {
+    std::lock_guard<std::mutex> lock(clientsMutex);
+    return clients.size();
+}
 #include "SocketServer.hpp"
 #include <boost/asio.hpp>
 #include <iostream>

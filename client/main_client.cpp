@@ -58,8 +58,8 @@ int main() {
             partidaIniciada = true;
             miTurno = false;
             system("clear");
-            ui.render();
-            std::cout << "La partida ha comenzado. Esperando turno..." << std::endl;
+        ui.render();
+        std::cout << "La partida ha comenzado. Esperando turno..." << std::endl;
             continue;
         }
 
@@ -67,32 +67,26 @@ int main() {
         if (msg.rfind("TURN ", 0) == 0) {
             std::string turno = msg.substr(5);
             miTurno = (turno == nombre);
-            system("clear");
+            // Limpiar pantalla solo si es mi turno, para evitar parpadeo excesivo
+            if (miTurno) {
+                system("clear");
+            }
             ui.render();
             if (miTurno) {
                 std::cout << "¡Es tu turno!" << std::endl;
-                std::cout << "fila columna (flag=1, descubrir=0): ";
                 int fila, columna, f;
-                std::cin >> fila >> columna >> f;
-                if (f) {
-                    logic->toggleFlag(fila, columna);
-                    system("clear");
-                    ui.render();
+                while (true) {
                     std::cout << "fila columna (flag=1, descubrir=0): ";
-                    // Permitir banderas múltiples en el mismo turno
                     std::cin >> fila >> columna >> f;
+                    // Validación de coordenadas antes de enviar
+                    if (fila < 0 || fila >= logic->getHeight() || columna < 0 || columna >= logic->getWidth()) {
+                        std::cout << "Coordenadas fuera de rango. Intenta de nuevo." << std::endl;
+                        continue;
+                    }
+                    break;
                 }
-                if (primerMovimiento) {
-                    client.send("MOVE " + std::to_string(fila) + " " + std::to_string(columna) + " " + std::to_string(f) + " " + nombre);
-                    miTurno = false;
-                } else {
-                    logic->reveal(fila, columna);
-                    system("clear");
-                    ui.render();
-                    std::cout << "Esperando tu turno..." << std::endl;
-                    client.send("MOVE " + std::to_string(fila) + " " + std::to_string(columna) + " " + std::to_string(f) + " " + nombre);
-                    miTurno = false;
-                }
+                client.send("MOVE " + std::to_string(fila) + " " + std::to_string(columna) + " " + std::to_string(f) + " " + nombre);
+                miTurno = false;
             } else {
                 std::cout << "Turno de: " << turno << std::endl;
                 std::cout << "Esperando tu turno..." << std::endl;
@@ -112,46 +106,22 @@ int main() {
             logic->reveal(fila, columna);
             system("clear");
             ui.render();
-            if (miTurno) {
-                std::cout << "fila columna (flag=1, descubrir=0): ";
-                int fila2, columna2, f2;
-                std::cin >> fila2 >> columna2 >> f2;
-                if (f2) {
-                    logic->toggleFlag(fila2, columna2);
-                    system("clear");
-                    ui.render();
-                    std::cout << "fila columna (flag=1, descubrir=0): ";
-                    std::cin >> fila2 >> columna2 >> f2;
-                }
-                if (primerMovimiento) {
-                    client.send("MOVE " + std::to_string(fila2) + " " + std::to_string(columna2) + " " + std::to_string(f2) + " " + nombre);
-                    miTurno = false;
-                } else {
-                    logic->reveal(fila2, columna2);
-                    system("clear");
-                    ui.render();
-                    std::cout << "Esperando tu turno..." << std::endl;
-                    client.send("MOVE " + std::to_string(fila2) + " " + std::to_string(columna2) + " " + std::to_string(f2) + " " + nombre);
-                    miTurno = false;
-                }
-            } else {
-                std::cout << "Esperando tu turno..." << std::endl;
-            }
+            std::cout << "Esperando tu turno..." << std::endl;
             continue;
         }
 
         if (msg.rfind("WIN ", 0) == 0) {
             std::string ganador = msg.substr(4);
-            std::cout << "¡Ganador: " << ganador << "!" << std::endl;
+            std::cout << "[ESTADO] ¡Ganador: " << ganador << "!" << std::endl;
             break;
         }
         if (msg.rfind("LOSE ", 0) == 0) {
             std::string perdedor = msg.substr(5);
-            std::cout << "¡Perdedor: " << perdedor << "!" << std::endl;
+            std::cout << "[ESTADO] ¡Perdedor: " << perdedor << "!" << std::endl;
             break;
         }
         if (msg.rfind("MSG ", 0) == 0) {
-            std::cout << msg.substr(4) << std::endl;
+            std::cout << "[INFO] " << msg.substr(4) << std::endl;
             continue;
         }
 
@@ -159,35 +129,15 @@ int main() {
         if (msg.rfind("SEED ", 0) == 0) {
             unsigned seed = std::stoul(msg.substr(5));
             srand(seed);
+            // Regenerar lógica y UI, pero advertir al usuario que las banderas se pierden
             logic = std::make_shared<GameLogic>(10, 10, 10);
             ui = GameUI(logic);
+            std::cout << "[INFO] El tablero ha sido regenerado tras el primer movimiento. Las banderas previas se han perdido." << std::endl;
             primerMovimiento = false;
             continue;
         }
 
-        // Si es mi turno y la partida está iniciada, pedir jugada SOLO tras recibir TURN
-        if (miTurno && partidaIniciada) {
-            int fila, columna, f;
-            std::cin >> fila >> columna >> f;
-            if (f) {
-                logic->toggleFlag(fila, columna);
-                system("clear");
-                ui.render();
-                std::cout << "fila columna (flag=1, descubrir=0): ";
-            } else {
-                if (primerMovimiento) {
-                    client.send("MOVE " + std::to_string(fila) + " " + std::to_string(columna) + " " + std::to_string(f) + " " + nombre);
-                    miTurno = false;
-                } else {
-                    logic->reveal(fila, columna);
-                    system("clear");
-                    ui.render();
-                    std::cout << "Esperando tu turno..." << std::endl;
-                    client.send("MOVE " + std::to_string(fila) + " " + std::to_string(columna) + " " + std::to_string(f) + " " + nombre);
-                    miTurno = false;
-                }
-            }
-        }
+        // ...eliminado input duplicado, ahora solo se procesa input tras recibir TURN...
     }
     client.disconnect();
     return 0;

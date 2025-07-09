@@ -41,6 +41,12 @@ int main() {
         auto mensajes = server.receiveAll();
         for (const auto& msg : mensajes) {
             // Protocolo simple: JOIN nombre | MOVE x y flag nombre | TURN nombre
+            // Manejo de desconexión simple: si un cliente se desconecta, terminar partida
+            if (server.getNumClients() < 1 && partidaIniciada) {
+                server.broadcast("MSG El cliente se ha desconectado. La partida ha terminado.");
+                partidaIniciada = false;
+                break;
+            }
             if (msg.rfind("JOIN ", 0) == 0) {
                 std::string nombre = msg.substr(5);
                 // Solo permitir UN cliente además del host
@@ -78,43 +84,54 @@ int main() {
                 size_t pos1 = msg.find(' ', 5);
                 size_t pos2 = msg.find(' ', pos1 + 1);
                 size_t pos3 = msg.find(' ', pos2 + 1);
-                if (pos1 != std::string::npos && pos2 != std::string::npos && pos3 != std::string::npos) {
-                    try {
-                        fila = std::stoi(msg.substr(5, pos1 - 5));
-                        columna = std::stoi(msg.substr(pos1 + 1, pos2 - pos1 - 1));
-                        flag = std::stoi(msg.substr(pos2 + 1, pos3 - pos2 - 1));
-                        nombre = msg.substr(pos3 + 1);
-                    } catch (...) {
-                        continue;
-                    }
-                    if (jugadores[turno] == nombre && nombre != nombreHost) { // Solo procesar jugadas del cliente
-                        if (flag) {
-                            logic->toggleFlag(fila, columna);
+                // Validación robusta de parsing
+                if (pos1 == std::string::npos || pos2 == std::string::npos || pos3 == std::string::npos) {
+                    server.broadcast("MSG Movimiento malformado ignorado");
+                    continue;
+                }
+                try {
+                    fila = std::stoi(msg.substr(5, pos1 - 5));
+                    columna = std::stoi(msg.substr(pos1 + 1, pos2 - pos1 - 1));
+                    flag = std::stoi(msg.substr(pos2 + 1, pos3 - pos2 - 1));
+                    nombre = msg.substr(pos3 + 1);
+                } catch (...) {
+                    server.broadcast("MSG Movimiento inválido ignorado");
+                    continue;
+                }
+                // Validación de coordenadas
+                if (fila < 0 || fila >= 10 || columna < 0 || columna >= 10) {
+                    server.broadcast("MSG Coordenadas fuera de rango");
+                    continue;
+                }
+                if (jugadores[turno] == nombre && nombre != nombreHost) { // Solo procesar jugadas del cliente
+                    if (flag) {
+                        logic->toggleFlag(fila, columna);
+                        system("clear");
+                        ui.render();
+                    } else {
+                        if (primerMovimiento) {
+                            unsigned seed = fila * 100 + columna;
+                            srand(seed);
+                            logic = std::make_shared<GameLogic>(10, 10, 10);
+                            logic->reveal(fila, columna);
+                            server.broadcast("SEED " + std::to_string(seed));
+                            primerMovimiento = false;
                         } else {
-                            if (primerMovimiento) {
-                                unsigned seed = fila * 100 + columna;
-                                srand(seed);
-                                logic = std::make_shared<GameLogic>(10, 10, 10);
-                                logic->reveal(fila, columna);
-                                server.broadcast("SEED " + std::to_string(seed));
-                                primerMovimiento = false;
-                            } else {
-                                logic->reveal(fila, columna);
-                            }
-                            system("clear");
-                            ui.render();
-                            std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
-                            server.broadcast(moveMsg);
-                            if (logic->isGameOver()) {
-                                server.broadcast("LOSE " + nombre);
-                                partidaIniciada = false;
-                            } else if (logic->isWin()) {
-                                server.broadcast("WIN " + nombre);
-                                partidaIniciada = false;
-                            } else {
-                                turno = (turno + 1) % jugadores.size();
-                                server.broadcast("TURN " + jugadores[turno]);
-                            }
+                            logic->reveal(fila, columna);
+                        }
+                        system("clear");
+                        ui.render();
+                        std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
+                        server.broadcast(moveMsg);
+                        if (logic->isGameOver()) {
+                            server.broadcast("LOSE " + nombre);
+                            partidaIniciada = false;
+                        } else if (logic->isWin()) {
+                            server.broadcast("WIN " + nombre);
+                            partidaIniciada = false;
+                        } else {
+                            turno = (turno + 1) % jugadores.size();
+                            server.broadcast("TURN " + jugadores[turno]);
                         }
                     }
                 }
@@ -122,37 +139,40 @@ int main() {
         }
 
         // --- Entrada de movimiento del host SOLO tras recibir TURN ---
-        if (partidaIniciada && jugadores.size() == 2 && jugadores[turno] == nombreHost && esperandoInputHost) {
-            while (true) {
+        while (partidaIniciada && jugadores.size() == 2 && jugadores[turno] == nombreHost && esperandoInputHost) {
+            system("clear");
+            ui.render();
+            std::cout << "fila columna (flag=1, descubrir=0): ";
+            int fila, columna, f;
+            std::cin >> fila >> columna >> f;
+            if (f) {
+                logic->toggleFlag(fila, columna);
+                // Actualizar tablero tras poner bandera
                 system("clear");
                 ui.render();
-                std::cout << "fila columna (flag=1, descubrir=0): ";
-                int fila, columna, f;
-                std::cin >> fila >> columna >> f;
-                if (f) {
-                    logic->toggleFlag(fila, columna);
-                    // Actualizar tablero tras poner bandera
+                // Repite el ciclo para mostrar el tablero actualizado y volver a pedir input
+                continue;
+            } else {
+                if (primerMovimiento) {
+                    unsigned seed = fila * 100 + columna;
+                    srand(seed);
+                    logic = std::make_shared<GameLogic>(10, 10, 10);
+                    logic->reveal(fila, columna);
+                    // Renderizar tablero antes de enviar mensajes
                     system("clear");
                     ui.render();
-                    // Repite el ciclo para mostrar el tablero actualizado y volver a pedir input
-                    continue;
+                    server.broadcast("SEED " + std::to_string(seed));
+                    std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
+                    server.broadcast(moveMsg);
+                    primerMovimiento = false;
+                    // Enviar TURN al cliente para que pueda jugar
+                    turno = (turno + 1) % jugadores.size();
+                    server.broadcast("TURN " + jugadores[turno]);
                 } else {
-                    if (primerMovimiento) {
-                        unsigned seed = fila * 100 + columna;
-                        srand(seed);
-                        logic = std::make_shared<GameLogic>(10, 10, 10);
-                        logic->reveal(fila, columna);
-                        // Actualizar tablero tras reveal
-                        system("clear");
-                        ui.render();
-                        server.broadcast("SEED " + std::to_string(seed));
-                        primerMovimiento = false;
-                    } else {
-                        logic->reveal(fila, columna);
-                        // Actualizar tablero tras reveal
-                        system("clear");
-                        ui.render();
-                    }
+                    logic->reveal(fila, columna);
+                    // Renderizar tablero antes de enviar mensajes
+                    system("clear");
+                    ui.render();
                     std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
                     server.broadcast(moveMsg);
                     if (logic->isGameOver()) {
@@ -165,15 +185,14 @@ int main() {
                         turno = (turno + 1) % jugadores.size();
                         server.broadcast("TURN " + jugadores[turno]);
                     }
-                    break; // Sal del ciclo de input tras un movimiento válido
                 }
+                esperandoInputHost = false;
+                break; // Sal del ciclo de input tras un movimiento válido
             }
-            esperandoInputHost = false;
         }
 
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
-
     udpDiscovery.stop();
     server.stop();
     return 0;
