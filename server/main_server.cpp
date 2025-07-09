@@ -107,18 +107,21 @@ int main() {
                 if (jugadores[turno] == nombre && nombre != nombreHost) { // Solo procesar jugadas del cliente
                     if (flag) {
                         logic->toggleFlag(fila, columna);
+                        std::cout << "[Cliente] Colocó/quitó bandera en (" << fila << ", " << columna << ")" << std::endl;
                         ui.render();
                     } else {
                         if (primerMovimiento) {
                             unsigned seed = fila * 100 + columna;
                             srand(seed);
                             logic = std::make_shared<GameLogic>(ancho, alto, minas);
+                            ui = GameUI(logic);
                             logic->reveal(fila, columna);
                             server.broadcast("SEED " + std::to_string(seed));
                             primerMovimiento = false;
                         } else {
                             logic->reveal(fila, columna);
                         }
+                        std::cout << "[Cliente] Descubrió (" << fila << ", " << columna << ")" << std::endl;
                         ui.render();
                         std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
                         server.broadcast(moveMsg);
@@ -156,6 +159,7 @@ int main() {
                     unsigned seed = fila * 100 + columna;
                     srand(seed);
                     logic = std::make_shared<GameLogic>(ancho, alto, minas);
+                    ui = GameUI(logic);
                     logic->reveal(fila, columna);
                     ui.render();
                     server.broadcast("SEED " + std::to_string(seed));

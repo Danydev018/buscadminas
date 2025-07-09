@@ -48,40 +48,58 @@ int main() {
     bool miTurno = false;
     bool partidaIniciada = false;
     bool primerMovimiento = true;
-    while (true) {
-        // Recibir mensajes del servidor
+    bool juegoTerminado = false;
+    while (!juegoTerminado) {
         std::string msg = client.receive();
         if (msg.empty()) continue;
 
-        // Mostrar tablero inicial al recibir START
+        if (msg.rfind("SEED ", 0) == 0) {
+            unsigned seed = 0;
+            try {
+                seed = std::stoul(msg.substr(5));
+            } catch (...) {
+                std::cout << "[ERROR] Semilla inválida recibida: " << msg << std::endl;
+                continue;
+            }
+            if (primerMovimiento) {
+                srand(seed);
+                primerMovimiento = false;
+            }
+            continue;
+        }
+
         if (msg.rfind("START ", 0) == 0) {
             std::string turno = msg.substr(6);
             partidaIniciada = true;
             miTurno = false;
-            // Solo limpiar pantalla si es necesario
             ui.render();
             std::cout << "La partida ha comenzado. Esperando turno..." << std::endl;
             continue;
         }
 
-        // Cambiar turno solo con mensaje TURN
         if (msg.rfind("TURN ", 0) == 0) {
             std::string turno = msg.substr(5);
             miTurno = (turno == nombre);
-            // Limpiar pantalla solo si es mi turno, para evitar parpadeo excesivo
-            if (miTurno) {
-                system("clear");
-            }
+            if (miTurno) system("clear");
             ui.render();
             if (miTurno) {
                 std::cout << "¡Es tu turno!" << std::endl;
-                int fila, columna, f;
+                int fila = -1, columna = -1, f = -1;
                 while (true) {
                     std::cout << "fila columna (flag=1, descubrir=0): ";
                     std::cin >> fila >> columna >> f;
-                    // Validación de coordenadas antes de enviar
+                    if (std::cin.fail()) {
+                        std::cin.clear();
+                        std::cin.ignore(10000, '\n');
+                        std::cout << "Entrada inválida. Intenta de nuevo." << std::endl;
+                        continue;
+                    }
                     if (fila < 0 || fila >= logic->getHeight() || columna < 0 || columna >= logic->getWidth()) {
                         std::cout << "Coordenadas fuera de rango. Intenta de nuevo." << std::endl;
+                        continue;
+                    }
+                    if (f != 0 && f != 1) {
+                        std::cout << "Flag debe ser 0 o 1." << std::endl;
                         continue;
                     }
                     break;
@@ -95,12 +113,6 @@ int main() {
             continue;
         }
 
-        // Ya no se usa BOARD, ignorar
-        if (msg.rfind("BOARD ", 0) == 0) {
-            continue;
-        }
-
-        // Ejecutar la jugada recibida del rival
         if (msg.rfind("REVEAL ", 0) == 0) {
             int fila = 0, columna = 0;
             if (sscanf(msg.c_str() + 7, "%d %d", &fila, &columna) != 2) {
@@ -120,35 +132,20 @@ int main() {
         if (msg.rfind("WIN ", 0) == 0) {
             std::string ganador = msg.substr(4);
             std::cout << "[ESTADO] ¡Ganador: " << ganador << "!" << std::endl;
-            break;
+            juegoTerminado = true;
+            continue;
         }
         if (msg.rfind("LOSE ", 0) == 0) {
             std::string perdedor = msg.substr(5);
             std::cout << "[ESTADO] ¡Perdedor: " << perdedor << "!" << std::endl;
-            break;
+            juegoTerminado = true;
+            continue;
         }
         if (msg.rfind("MSG ", 0) == 0) {
             std::cout << "[INFO] " << msg.substr(4) << std::endl;
             continue;
         }
-
-        // Sincronizar la semilla si el servidor la envía
-        if (msg.rfind("SEED ", 0) == 0) {
-            unsigned seed = 0;
-            try {
-                seed = std::stoul(msg.substr(5));
-            } catch (...) {
-                std::cout << "[ERROR] Semilla inválida recibida: " << msg << std::endl;
-                continue;
-            }
-            if (primerMovimiento) {
-                srand(seed);
-                primerMovimiento = false;
-            }
-            continue;
-        }
-
-        // ...eliminado input duplicado, ahora solo se procesa input tras recibir TURN...
+        // Ignorar mensajes no reconocidos
     }
     client.disconnect();
     return 0;
