@@ -42,7 +42,8 @@ int main() {
     std::cin >> nombre;
     client.send("JOIN " + nombre);
 
-    auto logic = std::make_shared<GameLogic>(10, 10, 10);
+    int ancho = 10, alto = 10, minas = 10;
+    auto logic = std::make_shared<GameLogic>(ancho, alto, minas);
     GameUI ui(logic);
     bool miTurno = false;
     bool partidaIniciada = false;
@@ -57,9 +58,9 @@ int main() {
             std::string turno = msg.substr(6);
             partidaIniciada = true;
             miTurno = false;
-            system("clear");
-        ui.render();
-        std::cout << "La partida ha comenzado. Esperando turno..." << std::endl;
+            // Solo limpiar pantalla si es necesario
+            ui.render();
+            std::cout << "La partida ha comenzado. Esperando turno..." << std::endl;
             continue;
         }
 
@@ -102,9 +103,15 @@ int main() {
         // Ejecutar la jugada recibida del rival
         if (msg.rfind("REVEAL ", 0) == 0) {
             int fila = 0, columna = 0;
-            sscanf(msg.c_str() + 7, "%d %d", &fila, &columna);
+            if (sscanf(msg.c_str() + 7, "%d %d", &fila, &columna) != 2) {
+                std::cout << "[ERROR] Mensaje REVEAL malformado: " << msg << std::endl;
+                continue;
+            }
+            if (fila < 0 || fila >= logic->getHeight() || columna < 0 || columna >= logic->getWidth()) {
+                std::cout << "[ERROR] Coordenadas fuera de rango en REVEAL: " << fila << ", " << columna << std::endl;
+                continue;
+            }
             logic->reveal(fila, columna);
-            system("clear");
             ui.render();
             std::cout << "Esperando tu turno..." << std::endl;
             continue;
@@ -127,13 +134,17 @@ int main() {
 
         // Sincronizar la semilla si el servidor la envía
         if (msg.rfind("SEED ", 0) == 0) {
-            unsigned seed = std::stoul(msg.substr(5));
-            srand(seed);
-            // Regenerar lógica y UI, pero advertir al usuario que las banderas se pierden
-            logic = std::make_shared<GameLogic>(10, 10, 10);
-            ui = GameUI(logic);
-            std::cout << "[INFO] El tablero ha sido regenerado tras el primer movimiento. Las banderas previas se han perdido." << std::endl;
-            primerMovimiento = false;
+            unsigned seed = 0;
+            try {
+                seed = std::stoul(msg.substr(5));
+            } catch (...) {
+                std::cout << "[ERROR] Semilla inválida recibida: " << msg << std::endl;
+                continue;
+            }
+            if (primerMovimiento) {
+                srand(seed);
+                primerMovimiento = false;
+            }
             continue;
         }
 

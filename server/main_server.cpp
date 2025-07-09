@@ -20,7 +20,8 @@ int main() {
     udpDiscovery.start();
     std::cout << "Servidor Buscaminas iniciado en el puerto " << port << std::endl;
 
-    auto logic = std::make_shared<GameLogic>(10, 10, 10);
+    int ancho = 10, alto = 10, minas = 10;
+    auto logic = std::make_shared<GameLogic>(ancho, alto, minas);
     bool primerMovimiento = true;
 
     // Bucle principal del servidor con turnos y sincronización básica
@@ -98,28 +99,26 @@ int main() {
                     server.broadcast("MSG Movimiento inválido ignorado");
                     continue;
                 }
-                // Validación de coordenadas
-                if (fila < 0 || fila >= 10 || columna < 0 || columna >= 10) {
+                // Validación de coordenadas usando dimensiones dinámicas
+                if (fila < 0 || fila >= logic->getHeight() || columna < 0 || columna >= logic->getWidth()) {
                     server.broadcast("MSG Coordenadas fuera de rango");
                     continue;
                 }
                 if (jugadores[turno] == nombre && nombre != nombreHost) { // Solo procesar jugadas del cliente
                     if (flag) {
                         logic->toggleFlag(fila, columna);
-                        system("clear");
                         ui.render();
                     } else {
                         if (primerMovimiento) {
                             unsigned seed = fila * 100 + columna;
                             srand(seed);
-                            logic = std::make_shared<GameLogic>(10, 10, 10);
+                            logic = std::make_shared<GameLogic>(ancho, alto, minas);
                             logic->reveal(fila, columna);
                             server.broadcast("SEED " + std::to_string(seed));
                             primerMovimiento = false;
                         } else {
                             logic->reveal(fila, columna);
                         }
-                        system("clear");
                         ui.render();
                         std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
                         server.broadcast(moveMsg);
@@ -140,38 +139,33 @@ int main() {
 
         // --- Entrada de movimiento del host SOLO tras recibir TURN ---
         while (partidaIniciada && jugadores.size() == 2 && jugadores[turno] == nombreHost && esperandoInputHost) {
-            system("clear");
             ui.render();
             std::cout << "fila columna (flag=1, descubrir=0): ";
             int fila, columna, f;
             std::cin >> fila >> columna >> f;
+            if (fila < 0 || fila >= logic->getHeight() || columna < 0 || columna >= logic->getWidth()) {
+                std::cout << "Coordenadas fuera de rango. Intenta de nuevo." << std::endl;
+                continue;
+            }
             if (f) {
                 logic->toggleFlag(fila, columna);
-                // Actualizar tablero tras poner bandera
-                system("clear");
                 ui.render();
-                // Repite el ciclo para mostrar el tablero actualizado y volver a pedir input
                 continue;
             } else {
                 if (primerMovimiento) {
                     unsigned seed = fila * 100 + columna;
                     srand(seed);
-                    logic = std::make_shared<GameLogic>(10, 10, 10);
+                    logic = std::make_shared<GameLogic>(ancho, alto, minas);
                     logic->reveal(fila, columna);
-                    // Renderizar tablero antes de enviar mensajes
-                    system("clear");
                     ui.render();
                     server.broadcast("SEED " + std::to_string(seed));
                     std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
                     server.broadcast(moveMsg);
                     primerMovimiento = false;
-                    // Enviar TURN al cliente para que pueda jugar
                     turno = (turno + 1) % jugadores.size();
                     server.broadcast("TURN " + jugadores[turno]);
                 } else {
                     logic->reveal(fila, columna);
-                    // Renderizar tablero antes de enviar mensajes
-                    system("clear");
                     ui.render();
                     std::string moveMsg = "REVEAL " + std::to_string(fila) + " " + std::to_string(columna);
                     server.broadcast(moveMsg);

@@ -44,9 +44,16 @@ void SocketServer::acceptClients() {
 
 void SocketServer::broadcast(const std::string& message) {
     std::lock_guard<std::mutex> lock(clientsMutex);
+    // Eliminar clientes desconectados
+    clients.erase(std::remove_if(clients.begin(), clients.end(), [](const std::shared_ptr<tcp::socket>& client) {
+        return !client->is_open();
+    }), clients.end());
     for (auto& client : clients) {
         boost::system::error_code ec;
         boost::asio::write(*client, boost::asio::buffer(message + "\n"), ec);
+        if (ec) {
+            client->close();
+        }
     }
 }
 
@@ -58,14 +65,18 @@ std::vector<std::string> SocketServer::receiveAll() {
     std::lock_guard<std::mutex> lock(clientsMutex);
     for (auto& client : clients) {
         boost::system::error_code ec;
-        while (client->available()) {
-            boost::asio::streambuf buf;
-            boost::asio::read_until(*client, buf, "\n", ec);
-            if (ec) break;
-            std::istream is(&buf);
-            std::string line;
-            std::getline(is, line);
-            if (!line.empty()) mensajes.push_back(line);
+        try {
+            while (client->available()) {
+                boost::asio::streambuf buf;
+                boost::asio::read_until(*client, buf, "\n", ec);
+                if (ec) break;
+                std::istream is(&buf);
+                std::string line;
+                std::getline(is, line);
+                if (!line.empty()) mensajes.push_back(line);
+            }
+        } catch (const std::exception& e) {
+            client->close();
         }
     }
     return mensajes;

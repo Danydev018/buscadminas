@@ -17,13 +17,24 @@ void SocketClient::connectToServer() {
 
 void SocketClient::send(const std::string& message) {
     if (!connected) return;
-    boost::asio::write(*socket, boost::asio::buffer(message + "\n"));
+    boost::system::error_code ec;
+    boost::asio::write(*socket, boost::asio::buffer(message + "\n"), ec);
+    if (ec) {
+        std::cout << "[ERROR] Error enviando mensaje: " << ec.message() << std::endl;
+        disconnect();
+    }
 }
 
 std::string SocketClient::receive() {
     if (!connected) return "";
     boost::asio::streambuf buf;
-    boost::asio::read_until(*socket, buf, "\n");
+    boost::system::error_code ec;
+    boost::asio::read_until(*socket, buf, "\n", ec);
+    if (ec) {
+        std::cout << "[ERROR] Error recibiendo mensaje: " << ec.message() << std::endl;
+        disconnect();
+        return "";
+    }
     std::istream is(&buf);
     std::string line;
     std::getline(is, line);

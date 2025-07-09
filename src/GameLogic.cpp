@@ -50,26 +50,20 @@ void GameLogic::reveal(int x, int y) {
         return;
     }
     revealRecursive(x, y);
-    // Check win: todas las celdas sin mina deben estar reveladas Y todas las minas deben estar correctamente marcadas con bandera
+    // Victoria: solo si todas las celdas sin mina están reveladas
     int hidden = 0;
-    int correctFlags = 0, totalFlags = 0;
     for (const auto& row : board) {
         for (const auto& cell : row) {
             if (cell.state == Hidden && !cell.hasMine)
                 ++hidden;
-            if (cell.state == Flagged) {
-                ++totalFlags;
-                if (cell.hasMine) ++correctFlags;
-            }
         }
     }
-    // Victoria solo si no hay celdas ocultas sin mina y todas las minas están correctamente marcadas
-    if (hidden == 0 && correctFlags == totalMines && totalFlags == totalMines) win = true;
+    if (hidden == 0) win = true;
 }
 
 void GameLogic::revealRecursive(int x, int y) {
     if (x < 0 || x >= width || y < 0 || y >= height) return;
-    // No quitar banderas automáticamente al revelar
+    // No quitar banderas automáticamente al revelar, pero permitir expansión si hay banderas incorrectas
     if (board[y][x].state == Flagged) return;
     if (board[y][x].state != Hidden) return;
     board[y][x].state = Revealed;
