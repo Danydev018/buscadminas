@@ -54,17 +54,17 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas
+CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build
+CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/buscaminas_client.dir/all
-all: CMakeFiles/buscaminas_server.dir/all
+all: CMakeFiles/server.dir/all
+all: CMakeFiles/client.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +72,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/buscaminas_client.dir/clean
-clean: CMakeFiles/buscaminas_server.dir/clean
+clean: CMakeFiles/server.dir/clean
+clean: CMakeFiles/client.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/buscaminas_client.dir
+# Target rules for target CMakeFiles/server.dir
 
 # All Build rule for target.
-CMakeFiles/buscaminas_client.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target buscaminas_client"
-.PHONY : CMakeFiles/buscaminas_client.dir/all
+CMakeFiles/server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=5,6,7,8 "Built target server"
+.PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/buscaminas_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/buscaminas_client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 0
-.PHONY : CMakeFiles/buscaminas_client.dir/rule
+CMakeFiles/server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles 0
+.PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
-buscaminas_client: CMakeFiles/buscaminas_client.dir/rule
-.PHONY : buscaminas_client
+server: CMakeFiles/server.dir/rule
+.PHONY : server
 
 # clean rule for target.
-CMakeFiles/buscaminas_client.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/clean
-.PHONY : CMakeFiles/buscaminas_client.dir/clean
+CMakeFiles/server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/clean
+.PHONY : CMakeFiles/server.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/buscaminas_server.dir
+# Target rules for target CMakeFiles/client.dir
 
 # All Build rule for target.
-CMakeFiles/buscaminas_server.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=9,10,11,12,13,14,15,16 "Built target buscaminas_server"
-.PHONY : CMakeFiles/buscaminas_server.dir/all
+CMakeFiles/client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=1,2,3,4 "Built target client"
+.PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/buscaminas_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/buscaminas_server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 0
-.PHONY : CMakeFiles/buscaminas_server.dir/rule
+CMakeFiles/client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles 0
+.PHONY : CMakeFiles/client.dir/rule
 
 # Convenience name for target.
-buscaminas_server: CMakeFiles/buscaminas_server.dir/rule
-.PHONY : buscaminas_server
+client: CMakeFiles/client.dir/rule
+.PHONY : client
 
 # clean rule for target.
-CMakeFiles/buscaminas_server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/clean
-.PHONY : CMakeFiles/buscaminas_server.dir/clean
+CMakeFiles/client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/clean
+.PHONY : CMakeFiles/client.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

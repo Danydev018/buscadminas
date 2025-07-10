@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas
+CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build
+CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,240 +117,153 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named buscaminas_client
+# Target rules for targets named server
 
 # Build rule for target.
-buscaminas_client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 buscaminas_client
-.PHONY : buscaminas_client
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
 
 # fast build rule for target.
-buscaminas_client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/build
-.PHONY : buscaminas_client/fast
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
 
 #=============================================================================
-# Target rules for targets named buscaminas_server
+# Target rules for targets named client
 
 # Build rule for target.
-buscaminas_server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 buscaminas_server
-.PHONY : buscaminas_server
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
 
 # fast build rule for target.
-buscaminas_server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/build
-.PHONY : buscaminas_server/fast
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
 
-client/main_client.o: client/main_client.cpp.o
-.PHONY : client/main_client.o
-
-# target to build an object file
-client/main_client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/client/main_client.cpp.o
-.PHONY : client/main_client.cpp.o
-
-client/main_client.i: client/main_client.cpp.i
-.PHONY : client/main_client.i
-
-# target to preprocess a source file
-client/main_client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/client/main_client.cpp.i
-.PHONY : client/main_client.cpp.i
-
-client/main_client.s: client/main_client.cpp.s
-.PHONY : client/main_client.s
-
-# target to generate assembly for a file
-client/main_client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/client/main_client.cpp.s
-.PHONY : client/main_client.cpp.s
-
-server/main_server.o: server/main_server.cpp.o
-.PHONY : server/main_server.o
+src/client/Client.o: src/client/Client.cpp.o
+.PHONY : src/client/Client.o
 
 # target to build an object file
-server/main_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/server/main_server.cpp.o
-.PHONY : server/main_server.cpp.o
+src/client/Client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.o
+.PHONY : src/client/Client.cpp.o
 
-server/main_server.i: server/main_server.cpp.i
-.PHONY : server/main_server.i
+src/client/Client.i: src/client/Client.cpp.i
+.PHONY : src/client/Client.i
 
 # target to preprocess a source file
-server/main_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/server/main_server.cpp.i
-.PHONY : server/main_server.cpp.i
+src/client/Client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.i
+.PHONY : src/client/Client.cpp.i
 
-server/main_server.s: server/main_server.cpp.s
-.PHONY : server/main_server.s
+src/client/Client.s: src/client/Client.cpp.s
+.PHONY : src/client/Client.s
 
 # target to generate assembly for a file
-server/main_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/server/main_server.cpp.s
-.PHONY : server/main_server.cpp.s
+src/client/Client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.s
+.PHONY : src/client/Client.cpp.s
 
-src/GameLogic.o: src/GameLogic.cpp.o
-.PHONY : src/GameLogic.o
+src/client/main_client.o: src/client/main_client.cpp.o
+.PHONY : src/client/main_client.o
 
 # target to build an object file
-src/GameLogic.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameLogic.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameLogic.cpp.o
-.PHONY : src/GameLogic.cpp.o
+src/client/main_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.o
+.PHONY : src/client/main_client.cpp.o
 
-src/GameLogic.i: src/GameLogic.cpp.i
-.PHONY : src/GameLogic.i
+src/client/main_client.i: src/client/main_client.cpp.i
+.PHONY : src/client/main_client.i
 
 # target to preprocess a source file
-src/GameLogic.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameLogic.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameLogic.cpp.i
-.PHONY : src/GameLogic.cpp.i
+src/client/main_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.i
+.PHONY : src/client/main_client.cpp.i
 
-src/GameLogic.s: src/GameLogic.cpp.s
-.PHONY : src/GameLogic.s
+src/client/main_client.s: src/client/main_client.cpp.s
+.PHONY : src/client/main_client.s
 
 # target to generate assembly for a file
-src/GameLogic.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameLogic.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameLogic.cpp.s
-.PHONY : src/GameLogic.cpp.s
+src/client/main_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.s
+.PHONY : src/client/main_client.cpp.s
 
-src/GameUI.o: src/GameUI.cpp.o
-.PHONY : src/GameUI.o
+src/common/Board.o: src/common/Board.cpp.o
+.PHONY : src/common/Board.o
 
 # target to build an object file
-src/GameUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameUI.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameUI.cpp.o
-.PHONY : src/GameUI.cpp.o
+src/common/Board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.o
+.PHONY : src/common/Board.cpp.o
 
-src/GameUI.i: src/GameUI.cpp.i
-.PHONY : src/GameUI.i
+src/common/Board.i: src/common/Board.cpp.i
+.PHONY : src/common/Board.i
 
 # target to preprocess a source file
-src/GameUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameUI.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameUI.cpp.i
-.PHONY : src/GameUI.cpp.i
+src/common/Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.i
+.PHONY : src/common/Board.cpp.i
 
-src/GameUI.s: src/GameUI.cpp.s
-.PHONY : src/GameUI.s
+src/common/Board.s: src/common/Board.cpp.s
+.PHONY : src/common/Board.s
 
 # target to generate assembly for a file
-src/GameUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/GameUI.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/GameUI.cpp.s
-.PHONY : src/GameUI.cpp.s
+src/common/Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.s
+.PHONY : src/common/Board.cpp.s
 
-src/SocketClient.o: src/SocketClient.cpp.o
-.PHONY : src/SocketClient.o
+src/server/Server.o: src/server/Server.cpp.o
+.PHONY : src/server/Server.o
 
 # target to build an object file
-src/SocketClient.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketClient.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketClient.cpp.o
-.PHONY : src/SocketClient.cpp.o
+src/server/Server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.o
+.PHONY : src/server/Server.cpp.o
 
-src/SocketClient.i: src/SocketClient.cpp.i
-.PHONY : src/SocketClient.i
+src/server/Server.i: src/server/Server.cpp.i
+.PHONY : src/server/Server.i
 
 # target to preprocess a source file
-src/SocketClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketClient.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketClient.cpp.i
-.PHONY : src/SocketClient.cpp.i
+src/server/Server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.i
+.PHONY : src/server/Server.cpp.i
 
-src/SocketClient.s: src/SocketClient.cpp.s
-.PHONY : src/SocketClient.s
+src/server/Server.s: src/server/Server.cpp.s
+.PHONY : src/server/Server.s
 
 # target to generate assembly for a file
-src/SocketClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketClient.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketClient.cpp.s
-.PHONY : src/SocketClient.cpp.s
+src/server/Server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.s
+.PHONY : src/server/Server.cpp.s
 
-src/SocketServer.o: src/SocketServer.cpp.o
-.PHONY : src/SocketServer.o
+src/server/main_server.o: src/server/main_server.cpp.o
+.PHONY : src/server/main_server.o
 
 # target to build an object file
-src/SocketServer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketServer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketServer.cpp.o
-.PHONY : src/SocketServer.cpp.o
+src/server/main_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.o
+.PHONY : src/server/main_server.cpp.o
 
-src/SocketServer.i: src/SocketServer.cpp.i
-.PHONY : src/SocketServer.i
-
-# target to preprocess a source file
-src/SocketServer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketServer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketServer.cpp.i
-.PHONY : src/SocketServer.cpp.i
-
-src/SocketServer.s: src/SocketServer.cpp.s
-.PHONY : src/SocketServer.s
-
-# target to generate assembly for a file
-src/SocketServer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/SocketServer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/SocketServer.cpp.s
-.PHONY : src/SocketServer.cpp.s
-
-src/UdpDiscoveryClient.o: src/UdpDiscoveryClient.cpp.o
-.PHONY : src/UdpDiscoveryClient.o
-
-# target to build an object file
-src/UdpDiscoveryClient.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryClient.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryClient.cpp.o
-.PHONY : src/UdpDiscoveryClient.cpp.o
-
-src/UdpDiscoveryClient.i: src/UdpDiscoveryClient.cpp.i
-.PHONY : src/UdpDiscoveryClient.i
+src/server/main_server.i: src/server/main_server.cpp.i
+.PHONY : src/server/main_server.i
 
 # target to preprocess a source file
-src/UdpDiscoveryClient.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryClient.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryClient.cpp.i
-.PHONY : src/UdpDiscoveryClient.cpp.i
+src/server/main_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.i
+.PHONY : src/server/main_server.cpp.i
 
-src/UdpDiscoveryClient.s: src/UdpDiscoveryClient.cpp.s
-.PHONY : src/UdpDiscoveryClient.s
-
-# target to generate assembly for a file
-src/UdpDiscoveryClient.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryClient.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryClient.cpp.s
-.PHONY : src/UdpDiscoveryClient.cpp.s
-
-src/UdpDiscoveryServer.o: src/UdpDiscoveryServer.cpp.o
-.PHONY : src/UdpDiscoveryServer.o
-
-# target to build an object file
-src/UdpDiscoveryServer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryServer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryServer.cpp.o
-.PHONY : src/UdpDiscoveryServer.cpp.o
-
-src/UdpDiscoveryServer.i: src/UdpDiscoveryServer.cpp.i
-.PHONY : src/UdpDiscoveryServer.i
-
-# target to preprocess a source file
-src/UdpDiscoveryServer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryServer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryServer.cpp.i
-.PHONY : src/UdpDiscoveryServer.cpp.i
-
-src/UdpDiscoveryServer.s: src/UdpDiscoveryServer.cpp.s
-.PHONY : src/UdpDiscoveryServer.s
+src/server/main_server.s: src/server/main_server.cpp.s
+.PHONY : src/server/main_server.s
 
 # target to generate assembly for a file
-src/UdpDiscoveryServer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_client.dir/build.make CMakeFiles/buscaminas_client.dir/src/UdpDiscoveryServer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscaminas_server.dir/build.make CMakeFiles/buscaminas_server.dir/src/UdpDiscoveryServer.cpp.s
-.PHONY : src/UdpDiscoveryServer.cpp.s
+src/server/main_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.s
+.PHONY : src/server/main_server.cpp.s
 
 # Help Target
 help:
@@ -360,32 +273,23 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... buscaminas_client"
-	@echo "... buscaminas_server"
-	@echo "... client/main_client.o"
-	@echo "... client/main_client.i"
-	@echo "... client/main_client.s"
-	@echo "... server/main_server.o"
-	@echo "... server/main_server.i"
-	@echo "... server/main_server.s"
-	@echo "... src/GameLogic.o"
-	@echo "... src/GameLogic.i"
-	@echo "... src/GameLogic.s"
-	@echo "... src/GameUI.o"
-	@echo "... src/GameUI.i"
-	@echo "... src/GameUI.s"
-	@echo "... src/SocketClient.o"
-	@echo "... src/SocketClient.i"
-	@echo "... src/SocketClient.s"
-	@echo "... src/SocketServer.o"
-	@echo "... src/SocketServer.i"
-	@echo "... src/SocketServer.s"
-	@echo "... src/UdpDiscoveryClient.o"
-	@echo "... src/UdpDiscoveryClient.i"
-	@echo "... src/UdpDiscoveryClient.s"
-	@echo "... src/UdpDiscoveryServer.o"
-	@echo "... src/UdpDiscoveryServer.i"
-	@echo "... src/UdpDiscoveryServer.s"
+	@echo "... client"
+	@echo "... server"
+	@echo "... src/client/Client.o"
+	@echo "... src/client/Client.i"
+	@echo "... src/client/Client.s"
+	@echo "... src/client/main_client.o"
+	@echo "... src/client/main_client.i"
+	@echo "... src/client/main_client.s"
+	@echo "... src/common/Board.o"
+	@echo "... src/common/Board.i"
+	@echo "... src/common/Board.s"
+	@echo "... src/server/Server.o"
+	@echo "... src/server/Server.i"
+	@echo "... src/server/Server.s"
+	@echo "... src/server/main_server.o"
+	@echo "... src/server/main_server.i"
+	@echo "... src/server/main_server.s"
 .PHONY : help
 
 

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/client.dir/src/common/Board.cpp.o CMakeFiles/client.dir/src/client/Client.cpp.o CMakeFiles/client.dir/src/client/main_client.cpp.o -o client 
