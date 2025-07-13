@@ -10,6 +10,7 @@
 #include <sstream>
 
 
+
 Client::Client(): board(nullptr) {}
 
 void Client::discover() {
@@ -65,9 +66,9 @@ void Client::connectTo(int idx) {
   R    = gi.rows;
   C    = gi.cols;
   M    = gi.mines;
-
-  board = new Board(R,C,M,seed);
-  clearScreen(); board->print();
+  clearScreen();
+  board = new Board(R, C, M, seed);
+  board->print();
 }
 
 void Client::play() {
@@ -75,7 +76,6 @@ void Client::play() {
   while (true) {
     Move mv{};
     if (!turnHost) {
-      Move mv{};
       while (true) {
           std::cout << "Formato: R fila col  |  F fila col\n> ";
           std::string line;
@@ -106,11 +106,12 @@ void Client::play() {
               mv.isFlag = 0;
               break;
           } else if (cmd == 'F') {
-              mv.row    = r;
-              mv.col    = c;
-              mv.isFlag = 1;
+              mv.row = r; mv.col = c; mv.isFlag = 1;
+              board->toggleFlag(r, c);
+              send(sockfd, &mv, sizeof(mv), 0); // enviar bandera al servidor
               break;
-          } else {
+          }
+          else {
               std::cout << "Comando inválido. Usa R o F.\n";
           }
       }

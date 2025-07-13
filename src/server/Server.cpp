@@ -31,8 +31,10 @@ void Server::gameLoop() {
   listen(srvSock,1);
 
   // imprimimos tablero host inicial
-  std::cout<<"Tablero inicial (host):\n";
+  clearScreen();
+  std::cout << "Tablero inicial (host):\n";
   board.print();
+
 
   std::cout<<"Esperando cliente…\n";
   int clientSock = accept(srvSock,nullptr,nullptr);
@@ -51,7 +53,6 @@ void Server::gameLoop() {
     Move mv{};
     if (turnHost) {
       // leer comando sólo en tu turno
-      Move mv{};
       while (true) {
           std::cout << "Formato: R fila col  |  F fila col\n> ";
           std::string line;
@@ -97,8 +98,13 @@ void Server::gameLoop() {
     }
 
     // aplicamos reveal o flag
-    if (mv.isFlag)    board.toggleFlag(mv.row,mv.col);
-    else              board.reveal(mv.row,mv.col);
+    if (mv.isFlag)
+      board.toggleFlag(mv.row, mv.col);
+    else
+        board.reveal(mv.row, mv.col);
+
+    // imprimimos tablero 
+
 
     clearScreen(); board.print();
 

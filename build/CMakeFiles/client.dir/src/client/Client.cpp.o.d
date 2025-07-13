@@ -1,8 +1,8 @@
 CMakeFiles/client.dir/src/client/Client.cpp.o: \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/Client.cpp \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp \
  /usr/include/stdc-predef.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/client/Client.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/Board.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/client/Client.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/Board.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -184,8 +184,8 @@ CMakeFiles/client.dir/src/client/Client.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/NetworkCommon.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/ConsoleUtils.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/NetworkCommon.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -213,4 +213,5 @@ CMakeFiles/client.dir/src/client/Client.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h
+ /usr/include/linux/close_range.h /usr/include/c++/12/sstream \
+ /usr/include/c++/12/bits/sstream.tcc

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include
+CXX_INCLUDES = -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include
 
 CXX_FLAGS = -std=gnu++17
 

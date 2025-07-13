@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot
+CMAKE_SOURCE_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build
+CMAKE_BINARY_DIR = /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/client.dir/depend.make
@@ -70,46 +70,46 @@ include CMakeFiles/client.dir/progress.make
 include CMakeFiles/client.dir/flags.make
 
 CMakeFiles/client.dir/src/common/Board.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/src/common/Board.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/common/Board.cpp
+CMakeFiles/client.dir/src/common/Board.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp
 CMakeFiles/client.dir/src/common/Board.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/common/Board.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/common/Board.cpp.o -MF CMakeFiles/client.dir/src/common/Board.cpp.o.d -o CMakeFiles/client.dir/src/common/Board.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/common/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/client.dir/src/common/Board.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/common/Board.cpp.o -MF CMakeFiles/client.dir/src/common/Board.cpp.o.d -o CMakeFiles/client.dir/src/common/Board.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp
 
 CMakeFiles/client.dir/src/common/Board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/common/Board.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/common/Board.cpp > CMakeFiles/client.dir/src/common/Board.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp > CMakeFiles/client.dir/src/common/Board.cpp.i
 
 CMakeFiles/client.dir/src/common/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/common/Board.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/common/Board.cpp -o CMakeFiles/client.dir/src/common/Board.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp -o CMakeFiles/client.dir/src/common/Board.cpp.s
 
 CMakeFiles/client.dir/src/client/Client.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/src/client/Client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/Client.cpp
+CMakeFiles/client.dir/src/client/Client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp
 CMakeFiles/client.dir/src/client/Client.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/client/Client.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/client/Client.cpp.o -MF CMakeFiles/client.dir/src/client/Client.cpp.o.d -o CMakeFiles/client.dir/src/client/Client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/client.dir/src/client/Client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/client/Client.cpp.o -MF CMakeFiles/client.dir/src/client/Client.cpp.o.d -o CMakeFiles/client.dir/src/client/Client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp
 
 CMakeFiles/client.dir/src/client/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client/Client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/Client.cpp > CMakeFiles/client.dir/src/client/Client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp > CMakeFiles/client.dir/src/client/Client.cpp.i
 
 CMakeFiles/client.dir/src/client/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client/Client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/Client.cpp -o CMakeFiles/client.dir/src/client/Client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp -o CMakeFiles/client.dir/src/client/Client.cpp.s
 
 CMakeFiles/client.dir/src/client/main_client.cpp.o: CMakeFiles/client.dir/flags.make
-CMakeFiles/client.dir/src/client/main_client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/main_client.cpp
+CMakeFiles/client.dir/src/client/main_client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp
 CMakeFiles/client.dir/src/client/main_client.cpp.o: CMakeFiles/client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/client/main_client.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/client/main_client.cpp.o -MF CMakeFiles/client.dir/src/client/main_client.cpp.o.d -o CMakeFiles/client.dir/src/client/main_client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/main_client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/client.dir/src/client/main_client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/client.dir/src/client/main_client.cpp.o -MF CMakeFiles/client.dir/src/client/main_client.cpp.o.d -o CMakeFiles/client.dir/src/client/main_client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp
 
 CMakeFiles/client.dir/src/client/main_client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/client.dir/src/client/main_client.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/main_client.cpp > CMakeFiles/client.dir/src/client/main_client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp > CMakeFiles/client.dir/src/client/main_client.cpp.i
 
 CMakeFiles/client.dir/src/client/main_client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/client.dir/src/client/main_client.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/main_client.cpp -o CMakeFiles/client.dir/src/client/main_client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp -o CMakeFiles/client.dir/src/client/main_client.cpp.s
 
 # Object files for target client
 client_OBJECTS = \
@@ -125,7 +125,7 @@ client: CMakeFiles/client.dir/src/client/Client.cpp.o
 client: CMakeFiles/client.dir/src/client/main_client.cpp.o
 client: CMakeFiles/client.dir/build.make
 client: CMakeFiles/client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -137,6 +137,6 @@ CMakeFiles/client.dir/clean:
 .PHONY : CMakeFiles/client.dir/clean
 
 CMakeFiles/client.dir/depend:
-	cd /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles/client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/client.dir/depend
 

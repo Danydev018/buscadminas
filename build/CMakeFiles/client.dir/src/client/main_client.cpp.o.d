@@ -1,8 +1,8 @@
 CMakeFiles/client.dir/src/client/main_client.cpp.o: \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/client/main_client.cpp \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp \
  /usr/include/stdc-predef.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/client/Client.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/Board.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/client/Client.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/Board.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -184,4 +184,4 @@ CMakeFiles/client.dir/src/client/main_client.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/NetworkCommon.h
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/NetworkCommon.h

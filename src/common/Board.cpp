@@ -105,13 +105,38 @@ void Board::print() const {
         std::cout << (r < 10 ? " " : "") << r << "|";
         for (int c = 0; c < C; ++c) {
             const Cell& cell = at(r,c);
-            char ch;
-            if (cell.state == Hidden)       ch = '.';
-            else if (cell.state == Flagged) ch = 'F';
-            else if (cell.hasMine)          ch = '*';
-            else if (cell.adjacentMines>0)  ch = '0' + cell.adjacentMines;
-            else                             ch = ' ';
+            std::string ch;
+
+            if (cell.state == Hidden) {
+                ch = "\033[90m·\033[0m"; // celda oculta: gris
+            }
+            else if (cell.state == Flagged) {
+                ch = "\033[33m🚩\033[0m"; // bandera: amarillo
+            }
+            else if (cell.hasMine) {
+                ch = "\033[31m💣\033[0m"; // bomba revelada: rojo
+            }
+            else if (cell.adjacentMines > 0) {
+                const char* colors[] = {
+                    "\033[34m", // azul
+                    "\033[32m", // verde
+                    "\033[36m", // cyan
+                    "\033[35m", // magenta
+                    "\033[31m", // rojo
+                    "\033[33m", // amarillo
+                    "\033[95m", // rosa
+                    "\033[91m"  // rojo claro
+                };
+                int idx = cell.adjacentMines - 1;
+                ch = colors[idx] + std::to_string(cell.adjacentMines) + "\033[0m";
+            }
+            else {
+                ch = " ";
+            }
+
             std::cout << ' ' << ch;
+
+
         }
         std::cout << " |\n";
     }

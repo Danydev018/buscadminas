@@ -1,8 +1,8 @@
 CMakeFiles/server.dir/src/server/Server.cpp.o: \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/server/Server.cpp \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp \
  /usr/include/stdc-predef.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/server/Server.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/Board.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/server/Server.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/Board.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -184,14 +184,14 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/NetworkCommon.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/NetworkCommon.h \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/std_thread.h \
  /usr/include/c++/12/tuple /usr/include/c++/12/bits/uses_allocator.h \
  /usr/include/c++/12/bits/unique_ptr.h \
  /usr/include/c++/12/bits/this_thread_sleep.h \
  /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
  /usr/include/c++/12/ctime /usr/include/c++/12/bits/parse_numbers.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/ConsoleUtils.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -217,4 +217,5 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h
+ /usr/include/linux/close_range.h /usr/include/c++/12/sstream \
+ /usr/include/c++/12/bits/sstream.tcc

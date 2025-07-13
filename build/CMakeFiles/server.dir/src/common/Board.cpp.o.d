@@ -1,7 +1,7 @@
 CMakeFiles/server.dir/src/common/Board.cpp.o: \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/src/common/Board.cpp \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp \
  /usr/include/stdc-predef.h \
- /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/practice/buscaminas_Copilot/include/common/Board.h \
+ /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/Board.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
