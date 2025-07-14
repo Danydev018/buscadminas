@@ -51,7 +51,8 @@ void Server::gameLoop() {
 
     clearScreen();
     std::cout << "Tablero inicial (host):\n";
-    board.print();
+    board.drawGotoxy(4, 2);  // Ejemplo: inicia desde columna 4, fila 2
+
 
     std::cout << "Esperando cliente…\n";
     int clientSock = accept(srvSock, nullptr, nullptr);
@@ -68,35 +69,59 @@ void Server::gameLoop() {
     while (true) {
         Move mv{};
         if (turnHost) {
+            int cursorRow = 0, cursorCol = 0;
+            int lastRow = -1, lastCol = -1;
+
             while (true) {
-                std::cout << "Formato: R fila col  |  F fila col\n> ";
-                std::string line;
-                std::getline(std::cin, line);
+                KeyCode key = getKey();
 
-                std::istringstream iss(line);
-                char cmd;
-                int r = -1, c = -1;
-                if (!(iss >> cmd >> r >> c)) {
-                    std::cout << "Formato inválido. Debes escribir: R 2 3\n";
-                    continue;
-                }
-                cmd = std::toupper(cmd);
-                if (r < 0 || r >= board.rows() || c < 0 || c >= board.cols()) {
-                    std::cout << "Coordenadas fuera del tablero (" << r << "," << c << ")\n";
-                    continue;
+                if (key == KEY_UP    && cursorRow > 0) cursorRow--;
+                else if (key == KEY_DOWN  && cursorRow < board.rows() - 1) cursorRow++;
+                else if (key == KEY_LEFT  && cursorCol > 0) cursorCol--;
+                else if (key == KEY_RIGHT && cursorCol < board.cols() - 1) cursorCol++;
+
+                if (cursorRow != lastRow || cursorCol != lastCol) {
+                    lastRow = cursorRow;
+                    lastCol = cursorCol;
+
+                    clearScreen();
+                    gotoxy(1, 1);
+                    drawFrameAroundBoard(4, 2, board.cols(), board.rows());
+                    board.drawGotoxy(4, 2);
+
+                    gotoxy(4 + cursorCol * 4, 2 + cursorRow);
+                    std::cout << "\033[35m[◉]\033[0m";
+
+                    gotoxy(2, board.rows() + 3);
+                    std::cout << "⬆️⬇️⬅️➡️ = moverse | R = revelar | F = bandera | Q = salir";
                 }
 
-                mv.row = r; mv.col = c;
-                if (cmd == 'F') mv.isFlag = 1;
-                else if (cmd == 'R') mv.isFlag = 0;
-                else {
-                    std::cout << "Comando inválido. Usa R o F.\n";
-                    continue;
+                if (key == KEY_FLAG) {
+                    mv.row = static_cast<uint8_t>(cursorRow);
+                    mv.col = static_cast<uint8_t>(cursorCol);
+                    mv.isFlag = 1;
+                    break;
                 }
-                break;
+                else if (key == KEY_ENTER) {
+                    mv.row = static_cast<uint8_t>(cursorRow);
+                    mv.col = static_cast<uint8_t>(cursorCol);
+                    mv.isFlag = 0;
+                    break;
+                }
+                else if (key == KEY_QUIT) {
+                    gotoxy(2, board.rows() + 5);
+                    std::cout << "🔚 Saliendo del juego...";
+                    close(clientSock);
+                    close(srvSock);
+                    return;
+                }
             }
+            drawStatusBar("⏳ Esperando movimiento del rival…", board.rows() + 5);
             send(clientSock, &mv, sizeof(mv), 0);
+            
+
         } else {
+            
             recv(clientSock, &mv, sizeof(mv), 0);
 
             // pequeño highlight visual
@@ -105,12 +130,18 @@ void Server::gameLoop() {
             std::this_thread::sleep_for(std::chrono::milliseconds(300));
         }
 
-        if (mv.isFlag)
+        if (mv.isFlag) {
             board.toggleFlag(mv.row, mv.col);
-        else
-            board.reveal(mv.row, mv.col);
+            updateBoardDisplay(4, 2, board);  // redibuja con estilo retro
 
-        clearScreen(); board.print();
+        } else {
+            board.reveal(mv.row, mv.col);
+            updateBoardDisplay(4, 2, board);  // redibuja con estilo retro
+        }
+        clearScreen();
+        gotoxy(1,1);
+        drawFrameAroundBoard(4, 2, board.cols(), board.rows());  // o board->cols() si estás en cliente
+        board.drawGotoxy(4, 2);
 
         if (!mv.isFlag && board.isMine(mv.row, mv.col)) {
             std::cout << (turnHost ? "Has perdido💣\n" : "Has ganado🏁\n");

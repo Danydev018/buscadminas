@@ -1,6 +1,8 @@
 #include "common/Board.h"
+#include "common/ConsoleUtils.h"
 #include <queue>
 #include <cassert>
+#include <iomanip>  // ← para std::setw y std::left
 
 Board::Board(int rows, int cols, int mines, unsigned seed)
     : R(rows), C(cols), M(mines), grid(rows*cols)
@@ -144,3 +146,50 @@ void Board::print() const {
     for (int c = 0; c < C; ++c) std::cout << "--";
     std::cout << "+\n";
 }
+
+
+void Board::drawGotoxy(int startX, int startY) const {
+    for (int r = 0; r < R; ++r) {
+        for (int c = 0; c < C; ++c) {
+            const Cell& cell = at(r, c);
+
+            std::string symbol;
+            std::string color;
+
+            if (cell.state == Hidden) {
+                symbol = "[·]";
+                color = "\033[34m";  // Azul
+            }
+            else if (cell.state == Flagged) {
+                symbol = "[🚩]";
+                color = "\033[33m";  // Amarillo
+            }
+            else if (cell.hasMine) {
+                symbol = "[💣]";
+                color = "\033[31m";  // Rojo
+            }
+            else if (cell.adjacentMines > 0) {
+                symbol = "[" + std::to_string(cell.adjacentMines) + "]";
+                color = "\033[36m";  // Cyan
+            }
+            else {
+                symbol = "[ ]";
+                color = "\033[32m";  // Verde
+            }
+
+            int x = startX + c * 4;
+            int y = startY + r;
+
+            gotoxy(x, y);
+
+            // 🔧 Formato fijo: rellena hasta 5 caracteres para limpiar restos anteriores
+            std::cout << color << std::setw(5) << std::left << symbol << "\033[0m";
+        }
+    }
+    gotoxy(2, startY + R + 1);
+    std::cout << "🔍 Casillas mostradas: " << R << " filas × " << C << " columnas\n";
+
+}
+
+
+

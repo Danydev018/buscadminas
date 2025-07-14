@@ -217,6 +217,33 @@ src/common/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.s
 .PHONY : src/common/Board.cpp.s
 
+src/common/ConsoleUtils.o: src/common/ConsoleUtils.cpp.o
+.PHONY : src/common/ConsoleUtils.o
+
+# target to build an object file
+src/common/ConsoleUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.o
+.PHONY : src/common/ConsoleUtils.cpp.o
+
+src/common/ConsoleUtils.i: src/common/ConsoleUtils.cpp.i
+.PHONY : src/common/ConsoleUtils.i
+
+# target to preprocess a source file
+src/common/ConsoleUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.i
+.PHONY : src/common/ConsoleUtils.cpp.i
+
+src/common/ConsoleUtils.s: src/common/ConsoleUtils.cpp.s
+.PHONY : src/common/ConsoleUtils.s
+
+# target to generate assembly for a file
+src/common/ConsoleUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.s
+.PHONY : src/common/ConsoleUtils.cpp.s
+
 src/server/Server.o: src/server/Server.cpp.o
 .PHONY : src/server/Server.o
 
@@ -284,6 +311,9 @@ help:
 	@echo "... src/common/Board.o"
 	@echo "... src/common/Board.i"
 	@echo "... src/common/Board.s"
+	@echo "... src/common/ConsoleUtils.o"
+	@echo "... src/common/ConsoleUtils.i"
+	@echo "... src/common/ConsoleUtils.s"
 	@echo "... src/server/Server.o"
 	@echo "... src/server/Server.i"
 	@echo "... src/server/Server.s"

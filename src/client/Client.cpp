@@ -78,7 +78,8 @@ void Client::connectTo(int idx) {
     clearScreen();
     gotoxy(1,1);
     board = new Board(R, C, M, seed);
-    board->print();
+    board->drawGotoxy(4, 2);  // Ejemplo: inicia desde columna 4, fila 2
+
 }
 
 void Client::play() {
@@ -86,41 +87,57 @@ void Client::play() {
     while (true) {
         Move mv{};
         if (!turnHost) {
+            int cursorRow = 0, cursorCol = 0;
+            int lastRow = -1, lastCol = -1;
+
             while (true) {
-                std::cout << "Formato: R fila col  |  F fila col\n> ";
-                std::string line;
-                std::getline(std::cin, line);
+                KeyCode key = getKey();
 
-                std::istringstream iss(line);
-                char cmd;
-                int r = -1, c = -1;
-                if (!(iss >> cmd >> r >> c)) {
-                    std::cout << "Entrada inválida. Usa R 2 3\n";
-                    continue;
+                if (key == KEY_UP    && cursorRow > 0) cursorRow--;
+                else if (key == KEY_DOWN  && cursorRow < board->rows() - 1) cursorRow++;
+                else if (key == KEY_LEFT  && cursorCol > 0) cursorCol--;
+                else if (key == KEY_RIGHT && cursorCol < board->cols() - 1) cursorCol++;
+
+                if (cursorRow != lastRow || cursorCol != lastCol) {
+                    lastRow = cursorRow;
+                    lastCol = cursorCol;
+
+                    clearScreen();
+                    gotoxy(1, 1);
+                    drawFrameAroundBoard(4, 2, board->cols(), board->rows());
+                    board->drawGotoxy(4, 2);
+
+                    gotoxy(4 + cursorCol * 4, 2 + cursorRow);
+                    std::cout << "\033[35m[◉]\033[0m";
+
+                    gotoxy(2, board->rows() + 3);
+                    std::cout << "⬆️⬇️⬅️➡️ = moverse | R = revelar | F = bandera | Q = salir";
                 }
 
-                cmd = std::toupper(cmd);
-                if (r < 0 || r >= board->rows() || c < 0 || c >= board->cols()) {
-                    std::cout << "Coordenadas fuera del tablero (" << r << "," << c << ")\n";
-                    continue;
-                }
-
-                mv.row = r;
-                mv.col = c;
-
-                if (cmd == 'F') {
+                if (key == KEY_FLAG) {
+                    mv.row = static_cast<uint8_t>(cursorRow);
+                    mv.col = static_cast<uint8_t>(cursorCol);
                     mv.isFlag = 1;
-                } else if (cmd == 'R') {
-                    mv.isFlag = 0;
-                } else {
-                    std::cout << "Comando inválido. Usa R o F.\n";
-                    continue;
+                    break;
                 }
-
-                break;
+                else if (key == KEY_ENTER) {
+                    mv.row = static_cast<uint8_t>(cursorRow);
+                    mv.col = static_cast<uint8_t>(cursorCol);
+                    mv.isFlag = 0;
+                    break;
+                }
+                else if (key == KEY_QUIT) {
+                    gotoxy(2, board->rows() + 5);
+                    std::cout << "🔚 Saliendo del juego...";
+                    close(sockfd);
+                    delete board;
+                    return;
+                }
             }
 
             send(sockfd, &mv, sizeof(mv), 0);
+            drawStatusBar("⏳ Esperando movimiento del rival…", board->rows() + 5);
+
         } else {
             recv(sockfd, &mv, sizeof(mv), 0);
             gotoxy(1,1);
@@ -129,15 +146,21 @@ void Client::play() {
         }
 
         // 🛠 Aplicar movimiento localmente
-        if (mv.isFlag)
+        if (mv.isFlag){
             board->toggleFlag(mv.row, mv.col);
-        else
-            board->reveal(mv.row, mv.col);
+            updateBoardDisplay(4, 2, *board);
 
+        } else {
+            board->reveal(mv.row, mv.col);
+            updateBoardDisplay(4, 2, *board);
+
+        }
         // 🔃 Actualizar pantalla
         clearScreen();
         gotoxy(1,1);
-        board->print();
+        drawFrameAroundBoard(4, 2, board->cols(), board->rows());  // o board->cols() si estás en cliente
+        board->drawGotoxy(4, 2);
+        
 
         // 💣 Verificación de bomba
         if (!mv.isFlag && board->isMine(mv.row, mv.col)) {

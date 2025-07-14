@@ -31,6 +31,8 @@ public:
 
     // Dibuja el tablero en pantalla según el estado de cada celda
     void print() const;
+    void drawGotoxy(int startX, int startY) const;
+
 
 private:
     int R, C, M;
