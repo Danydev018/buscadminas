@@ -1,6 +1,8 @@
 #include "common/ConsoleUtils.h"
 #include <termios.h>
 #include <unistd.h>
+#include <chrono>
+#include <thread>
 
 void gotoxy(int x, int y) {
     std::cout << "\033[" << y << ";" << x << "H";
@@ -64,4 +66,29 @@ void updateBoardDisplay(int startX, int startY, const Board& board) {
 void drawStatusBar(const std::string& msg, int rowY) {
     gotoxy(2, rowY);
     std::cout << "\033[36m" << msg << "\033[0m";  // Cyan
+}
+
+void showAllMines(const Board& board, const std::string& gameResult) {  
+    // Limpiar y redibujar el tablero  
+    clearScreen();  
+    gotoxy(1, 1);  
+    drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
+    board.drawGotoxy(4, 2);  
+      
+    // Mostrar todas las minas  
+    for (int r = 0; r < board.rows(); r++) {  
+        for (int c = 0; c < board.cols(); c++) {  
+            if (board.isMine(r, c)) {  
+                highlightCell(r, c, "[💣]");  
+            }  
+        }  
+    }  
+      
+    // Mostrar el resultado del juego DESPUÉS de las minas  
+    gotoxy(2, board.rows() + 5);  
+    std::cout << gameResult << std::endl;  
+      
+    gotoxy(2, board.rows() + 6);  
+    std::cout << "Presiona cualquier tecla para continuar...";  
+    getKey();  
 }

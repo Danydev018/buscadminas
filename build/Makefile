@@ -244,6 +244,33 @@ src/common/ConsoleUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.s
 .PHONY : src/common/ConsoleUtils.cpp.s
 
+src/common/NetworkUtils.o: src/common/NetworkUtils.cpp.o
+.PHONY : src/common/NetworkUtils.o
+
+# target to build an object file
+src/common/NetworkUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o
+.PHONY : src/common/NetworkUtils.cpp.o
+
+src/common/NetworkUtils.i: src/common/NetworkUtils.cpp.i
+.PHONY : src/common/NetworkUtils.i
+
+# target to preprocess a source file
+src/common/NetworkUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.i
+.PHONY : src/common/NetworkUtils.cpp.i
+
+src/common/NetworkUtils.s: src/common/NetworkUtils.cpp.s
+.PHONY : src/common/NetworkUtils.s
+
+# target to generate assembly for a file
+src/common/NetworkUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.s
+.PHONY : src/common/NetworkUtils.cpp.s
+
 src/server/Server.o: src/server/Server.cpp.o
 .PHONY : src/server/Server.o
 
@@ -314,6 +341,9 @@ help:
 	@echo "... src/common/ConsoleUtils.o"
 	@echo "... src/common/ConsoleUtils.i"
 	@echo "... src/common/ConsoleUtils.s"
+	@echo "... src/common/NetworkUtils.o"
+	@echo "... src/common/NetworkUtils.i"
+	@echo "... src/common/NetworkUtils.s"
 	@echo "... src/server/Server.o"
 	@echo "... src/server/Server.i"
 	@echo "... src/server/Server.s"

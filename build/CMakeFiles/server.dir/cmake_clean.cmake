@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/src/common/Board.cpp.o.d"
   "CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o"
   "CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o.d"
+  "CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o"
+  "CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o.d"
   "CMakeFiles/server.dir/src/server/Server.cpp.o"
   "CMakeFiles/server.dir/src/server/Server.cpp.o.d"
   "CMakeFiles/server.dir/src/server/main_server.cpp.o"

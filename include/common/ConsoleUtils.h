@@ -25,13 +25,14 @@ void gotoxy(int x, int y);
 void drawFrameAroundBoard(int startX, int startY, int width, int height);
 void updateBoardDisplay(int startX, int startY, const Board& board);
 
-inline void highlightCell(int row, int col, const std::string& symbol) {
-    // Ajusta estas coordenadas si tu tablero tiene encabezado o márgenes
-    int screenRow = 6 + row; // por ejemplo, si el tablero empieza en fila 6
-    int screenCol = 3 + col * 2; // cada celda toma 2 espacios: " ·"
-    gotoxy(screenRow, screenCol);
-    std::cout << "\033[7m" << symbol << "\033[0m"; // invertido temporal
+inline void highlightCell(int row, int col, const std::string& symbol) {  
+    int screenX = 4 + col * 4;  
+    int screenY = 2 + row;  
+    gotoxy(screenX, screenY);  
+    std::cout << "\033[35m" << symbol << "\033[0m"; // Usar color magenta como antes  
 }
+
+void showAllMines(const Board& board, const std::string& gameResult);
 
 void drawStatusBar(const std::string& msg, int rowY);
 

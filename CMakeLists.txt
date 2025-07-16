@@ -11,6 +11,7 @@ add_executable(server
     src/server/Server.cpp
     src/server/main_server.cpp
     src/common/ConsoleUtils.cpp
+    src/common/NetworkUtils.cpp
 )
 target_link_libraries(server PRIVATE Threads::Threads)
 
@@ -19,5 +20,6 @@ add_executable(client
     src/client/Client.cpp
     src/client/main_client.cpp
     src/common/ConsoleUtils.cpp
+    src/common/NetworkUtils.cpp
 )
 target_link_libraries(client PRIVATE Threads::Threads)

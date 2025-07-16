@@ -1,1 +1,1 @@
-add_library(common Board.cpp ConsoleUtils.cpp ConsoleUtils.cpp)
+add_library(common Board.cpp ConsoleUtils.cpp ConsoleUtils.cpp NetworkUtils.cpp)
