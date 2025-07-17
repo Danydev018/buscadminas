@@ -254,25 +254,26 @@ CMakeFiles/client.dir/src/client/Client.cpp.o: /home/danydev/Documentos/PROYECTO
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
-  /usr/include/arpa/inet.h \
-  /usr/include/netinet/in.h \
-  /usr/include/x86_64-linux-gnu/bits/in.h \
   /usr/include/c++/12/chrono \
   /usr/include/c++/12/bits/chrono.h \
   /usr/include/c++/12/ratio \
   /usr/include/c++/12/ctime \
   /usr/include/c++/12/bits/parse_numbers.h \
-  /usr/include/c++/12/cstring \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/c++/12/sstream \
-  /usr/include/c++/12/bits/sstream.tcc \
   /usr/include/c++/12/thread \
   /usr/include/c++/12/bits/std_thread.h \
   /usr/include/c++/12/tuple \
   /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/bits/unique_ptr.h \
-  /usr/include/c++/12/bits/this_thread_sleep.h
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/stdlib.h \
+  /usr/include/arpa/inet.h \
+  /usr/include/netinet/in.h \
+  /usr/include/x86_64-linux-gnu/bits/in.h \
+  /usr/include/c++/12/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/c++/12/sstream \
+  /usr/include/c++/12/bits/sstream.tcc
 
 CMakeFiles/client.dir/src/client/main_client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp \
   /usr/include/stdc-predef.h \
@@ -752,19 +753,29 @@ CMakeFiles/client.dir/src/common/Board.cpp.o: /home/danydev/Documentos/PROYECTOS
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/stdlib.h \
   /usr/include/c++/12/queue \
   /usr/include/c++/12/deque \
   /usr/include/c++/12/bits/stl_deque.h \
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_heap.h \
   /usr/include/c++/12/bits/stl_queue.h \
-  /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/cassert \
   /usr/include/assert.h \
   /usr/include/c++/12/iomanip \
   /usr/include/c++/12/locale \
   /usr/include/c++/12/bits/locale_facets_nonio.h \
-  /usr/include/c++/12/ctime \
   /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
   /usr/include/libintl.h \
@@ -1000,6 +1011,18 @@ CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.o: /home/danydev/Documentos/PR
   /usr/include/c++/12/bit \
   /usr/include/c++/12/pstl/glue_numeric_defs.h \
   /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/stdlib.h \
   /usr/include/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
@@ -1019,18 +1042,7 @@ CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.o: /home/danydev/Documentos/PR
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /usr/include/linux/close_range.h \
-  /usr/include/c++/12/chrono \
-  /usr/include/c++/12/bits/chrono.h \
-  /usr/include/c++/12/ratio \
-  /usr/include/c++/12/ctime \
-  /usr/include/c++/12/bits/parse_numbers.h \
-  /usr/include/c++/12/thread \
-  /usr/include/c++/12/bits/std_thread.h \
-  /usr/include/c++/12/tuple \
-  /usr/include/c++/12/bits/uses_allocator.h \
-  /usr/include/c++/12/bits/unique_ptr.h \
-  /usr/include/c++/12/bits/this_thread_sleep.h
+  /usr/include/linux/close_range.h
 
 CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp \
   /usr/include/stdc-predef.h \
@@ -1282,12 +1294,6 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp:
 
-/usr/include/c++/12/bits/this_thread_sleep.h:
-
-/usr/include/c++/12/bits/unique_ptr.h:
-
-/usr/include/c++/12/bits/uses_allocator.h:
-
 /usr/include/libintl.h:
 
 /usr/include/c++/12/bits/sstream.tcc:
@@ -1296,9 +1302,17 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 
 /usr/include/string.h:
 
-/usr/include/c++/12/bits/parse_numbers.h:
+/usr/include/netinet/in.h:
 
-/usr/include/c++/12/ctime:
+/usr/include/c++/12/stdlib.h:
+
+/usr/include/c++/12/bits/this_thread_sleep.h:
+
+/usr/include/c++/12/bits/unique_ptr.h:
+
+/usr/include/c++/12/bits/uses_allocator.h:
+
+/usr/include/c++/12/bits/parse_numbers.h:
 
 /usr/include/c++/12/tr1/ell_integral.tcc:
 
@@ -1376,10 +1390,6 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
-/usr/include/c++/12/bits/chrono.h:
-
-/usr/include/c++/12/clocale:
-
 /usr/include/stdlib.h:
 
 /usr/include/c++/12/tr1/modified_bessel_func.tcc:
@@ -1407,8 +1417,6 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 /usr/include/c++/12/stdexcept:
 
 /usr/include/c++/12/istream:
-
-/usr/include/netinet/in.h:
 
 /usr/include/c++/12/bits/functexcept.h:
 
@@ -1491,6 +1499,10 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
 /usr/include/c++/12/bits/memoryfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/in.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h:
 
@@ -1810,6 +1822,8 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 
 /usr/include/c++/12/bits/basic_ios.tcc:
 
+/usr/include/c++/12/ctime:
+
 /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
@@ -1850,10 +1864,10 @@ CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PR
 
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
-/usr/include/x86_64-linux-gnu/bits/in.h:
-
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/c++/12/chrono:
+
+/usr/include/c++/12/clocale:
+
+/usr/include/c++/12/bits/chrono.h:

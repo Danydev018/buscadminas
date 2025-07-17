@@ -8,24 +8,46 @@ void gotoxy(int x, int y) {
     std::cout << "\033[" << y << ";" << x << "H";
 }
 
-void drawFrameAroundBoard(int startX, int startY, int width, int height) {
-    gotoxy(startX - 2, startY - 1);
-    std::cout << "╔";
-    for (int i = 0; i < width * 4; ++i) std::cout << "═";
-    std::cout << "╗";
-
-    for (int j = 0; j < height; ++j) {
-        gotoxy(startX - 2, startY + j);
-        std::cout << "║";
-        gotoxy(startX + width * 4, startY + j);
-        std::cout << "║";
-    }
-
-    gotoxy(startX - 2, startY + height);
-    std::cout << "╚";
-    for (int i = 0; i < width * 4; ++i) std::cout << "═";
-    std::cout << "╝";
+void drawFrameAroundBoard(int startX, int startY, int width, int height) {  
+    gotoxy(startX - 2, startY - 1);  
+    std::cout << "╔";  
+    for (int i = 0; i < width * 3; ++i) std::cout << "═";   
+    std::cout << "╗";  
+  
+    for (int j = 0; j < height; ++j) {  
+        gotoxy(startX - 2, startY + j);  
+        std::cout << "║";  
+        gotoxy(startX + (width - 1) * 3 + 2, startY + j);   
+        std::cout << "║";  
+    }  
+  
+    gotoxy(startX - 2, startY + height);  
+    std::cout << "╚";  
+    for (int i = 0; i < width * 3; ++i) std::cout << "═";  
+    std::cout << "╝";  
 }
+
+// void drawFrameAroundBoard(int startX, int startY, int width, int height) {  
+//     gotoxy(startX - 2, startY - 1);  
+//     std::cout << "╔";  
+//     // Cambiar de width * 3 a (width - 1) * 3 + 1  
+//     for (int i = 0; i < (width - 1) * 3 + 1; ++i) std::cout << "═";  
+//     std::cout << "╗";  
+  
+//     for (int j = 0; j < height; ++j) {  
+//         gotoxy(startX - 2, startY + j);  
+//         std::cout << "║";  
+//         // Cambiar de width * 3 a (width - 1) * 3 + 1  
+//         gotoxy(startX + (width - 1) * 3 + 1, startY + j);  
+//         std::cout << "║";  
+//     }  
+  
+//     gotoxy(startX - 2, startY + height);  
+//     std::cout << "╚";  
+//     // Cambiar de width * 3 a (width - 1) * 3 + 1  
+//     for (int i = 0; i < (width - 1) * 3 + 1; ++i) std::cout << "═";  
+//     std::cout << "╝";  
+// }
 
 KeyCode getKey() {
     termios oldt{}, newt{};
@@ -79,7 +101,7 @@ void showAllMines(const Board& board, const std::string& gameResult) {
     for (int r = 0; r < board.rows(); r++) {  
         for (int c = 0; c < board.cols(); c++) {  
             if (board.isMine(r, c)) {  
-                highlightCell(r, c, "[💣]");  
+                highlightCell(r, c, "💣");  
             }  
         }  
     }  

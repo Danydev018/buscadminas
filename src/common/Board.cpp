@@ -135,8 +135,10 @@ void Board::print() const {
             else {
                 ch = " ";
             }
-
-            std::cout << ' ' << ch;
+            if( c != C-1 ) {
+                std::cout << ' ' << ch;
+            }
+            
 
 
         }
@@ -148,48 +150,45 @@ void Board::print() const {
 }
 
 
-void Board::drawGotoxy(int startX, int startY) const {
-    for (int r = 0; r < R; ++r) {
-        for (int c = 0; c < C; ++c) {
-            const Cell& cell = at(r, c);
-
-            std::string symbol;
-            std::string color;
-
-            if (cell.state == Hidden) {
-                symbol = "[·]";
-                color = "\033[34m";  // Azul
+void Board::drawGotoxy(int startX, int startY) const {  
+    for (int r = 0; r < R; ++r) {  
+        for (int c = 0; c < C; ++c) {  
+            const Cell& cell = at(r, c);  
+  
+            std::string symbol;  
+            std::string color;  
+  
+            if (cell.state == Hidden) {  
+                symbol = "■";  // Un solo carácter  
+                color = "\033[90m";  // Gris oscuro  
+            }  
+            else if (cell.state == Flagged) {  
+                symbol = "🚩";  
+                color = "\033[33m";  // Amarillo  
+            }  
+            else if (cell.hasMine) {  
+                symbol = "💣";  
+                color = "\033[31m";  // Rojo  
+            }  
+            else if (cell.adjacentMines > 0) {  
+                symbol = std::to_string(cell.adjacentMines);  
+                color = "\033[36m";  // Cyan  
             }
-            else if (cell.state == Flagged) {
-                symbol = "[🚩]";
-                color = "\033[33m";  // Amarillo
-            }
-            else if (cell.hasMine) {
-                symbol = "[💣]";
-                color = "\033[31m";  // Rojo
-            }
-            else if (cell.adjacentMines > 0) {
-                symbol = "[" + std::to_string(cell.adjacentMines) + "]";
-                color = "\033[36m";  // Cyan
-            }
-            else {
-                symbol = "[ ]";
-                color = "\033[32m";  // Verde
-            }
-
-            int x = startX + c * 4;
-            int y = startY + r;
-
-            gotoxy(x, y);
-
-            // 🔧 Formato fijo: rellena hasta 5 caracteres para limpiar restos anteriores
-            std::cout << color << std::setw(5) << std::left << symbol << "\033[0m";
-        }
-    }
-    gotoxy(2, startY + R + 1);
-    std::cout << "🔍 Casillas mostradas: " << R << " filas × " << C << " columnas\n";
-
+            else {  
+                symbol = " ";  // Espacio simple  
+                color = "\033[37m";  // Blanco  
+            }  
+  
+            int x = startX + c * 3;  // Reducir espaciado de 4 a 2  
+            int y = startY + r ;  // Mantener espaciado vertical  
+  
+            gotoxy(x, y);  
+            std::cout << color << symbol << "\033[0m";  
+        }  
+    }  
+      
+    gotoxy(2, startY + R * 2 + 2);  
+    std::cout << "🔍 Tablero: " << R << "×" << C << " (" << M << " minas)\n";  
 }
-
-
+    
 

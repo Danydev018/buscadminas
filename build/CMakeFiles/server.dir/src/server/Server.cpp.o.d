@@ -218,7 +218,8 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: \
  /usr/include/c++/12/atomic /usr/include/c++/12/bits/atomic_base.h \
  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
+ /usr/include/c++/12/chrono /usr/include/c++/12/stdlib.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/c++/12/cstring \
  /usr/include/string.h /usr/include/strings.h /usr/include/c++/12/sstream \
- /usr/include/c++/12/bits/sstream.tcc /usr/include/c++/12/chrono
+ /usr/include/c++/12/bits/sstream.tcc

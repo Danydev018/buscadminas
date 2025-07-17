@@ -113,17 +113,17 @@ void Server::gameLoop() {
     }  
   
     clearScreen();  
-    std::cout << "Tablero inicial (host):\\n";  
+    std::cout << "Tablero inicial (host):\n";  
     board.drawGotoxy(4, 2);  
   
-    std::cout << "Esperando cliente…\\n";  
+    std::cout << "Esperando cliente…\n";  
     int clientSock = accept(srvSock, nullptr, nullptr);  
     if (clientSock == -1) {  
         std::cerr << "Error aceptando conexión" << std::endl;  
         close(srvSock);  
         return;  
     }  
-    std::cout << "Cliente conectado\\n";  
+    std::cout << "Cliente conectado\n";  
   
     // Enviar configuración del juego  
     GameInit gi;  
@@ -165,12 +165,16 @@ void Server::gameLoop() {
                     drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
                     board.drawGotoxy(4, 2);  
   
-                    gotoxy(4 + cursorCol * 4, 2 + cursorRow);  
-                    std::cout << "\033[35m[◉]\033[0m";  
+                    gotoxy(4 + cursorCol * 3, 2 + cursorRow);  // Cambiar de * 4 a * 3  
+                    std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
-                    gotoxy(2, board.rows() + 3);  
-                    std::cout << "⬆️⬇️⬅️➡️ = moverse | R = revelar | F = bandera | Q = salir";  
+                    gotoxy(2, board.rows() + 6);    
+                    std::cout << "\033[92m┌─ CONTROLES ─────────────────────────────────────┐\033[0m\n";  
+                    gotoxy(2, board.rows() + 7);  
+                    std::cout << "\033[92m│ \033[97m⬆️⬇️⬅️➡️ Mover cursor  \033[93mR\033[97m Revelar  \033[93mF\033[97m Bandera \033[93mQ\033[97m Salir \033[92m│\033[0m\n";  
+                    gotoxy(2, board.rows() + 8);  
+                    std::cout << "\033[92m└─────────────────────────────────────────────────┘\033[0m";  
                 }  
   
                 if (key == KEY_FLAG) {  

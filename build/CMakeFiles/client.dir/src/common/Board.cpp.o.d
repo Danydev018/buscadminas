@@ -184,13 +184,20 @@ CMakeFiles/client.dir/src/common/Board.cpp.o: \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
- /usr/include/c++/12/queue /usr/include/c++/12/deque \
- /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
- /usr/include/c++/12/bits/stl_heap.h /usr/include/c++/12/bits/stl_queue.h \
- /usr/include/c++/12/bits/uses_allocator.h /usr/include/c++/12/cassert \
+ /usr/include/c++/12/chrono /usr/include/c++/12/bits/chrono.h \
+ /usr/include/c++/12/ratio /usr/include/c++/12/ctime \
+ /usr/include/c++/12/bits/parse_numbers.h /usr/include/c++/12/thread \
+ /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/tuple \
+ /usr/include/c++/12/bits/uses_allocator.h \
+ /usr/include/c++/12/bits/unique_ptr.h \
+ /usr/include/c++/12/bits/this_thread_sleep.h \
+ /usr/include/c++/12/stdlib.h /usr/include/c++/12/queue \
+ /usr/include/c++/12/deque /usr/include/c++/12/bits/stl_deque.h \
+ /usr/include/c++/12/bits/deque.tcc /usr/include/c++/12/bits/stl_heap.h \
+ /usr/include/c++/12/bits/stl_queue.h /usr/include/c++/12/cassert \
  /usr/include/assert.h /usr/include/c++/12/iomanip \
  /usr/include/c++/12/locale \
- /usr/include/c++/12/bits/locale_facets_nonio.h /usr/include/c++/12/ctime \
+ /usr/include/c++/12/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
  /usr/include/libintl.h /usr/include/c++/12/bits/codecvt.h \

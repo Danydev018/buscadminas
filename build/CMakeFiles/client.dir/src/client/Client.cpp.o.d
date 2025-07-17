@@ -210,13 +210,14 @@ CMakeFiles/client.dir/src/client/Client.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
- /usr/include/arpa/inet.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/c++/12/chrono \
- /usr/include/c++/12/bits/chrono.h /usr/include/c++/12/ratio \
- /usr/include/c++/12/ctime /usr/include/c++/12/bits/parse_numbers.h \
- /usr/include/c++/12/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/12/sstream /usr/include/c++/12/bits/sstream.tcc \
- /usr/include/c++/12/thread /usr/include/c++/12/bits/std_thread.h \
- /usr/include/c++/12/tuple /usr/include/c++/12/bits/uses_allocator.h \
+ /usr/include/c++/12/chrono /usr/include/c++/12/bits/chrono.h \
+ /usr/include/c++/12/ratio /usr/include/c++/12/ctime \
+ /usr/include/c++/12/bits/parse_numbers.h /usr/include/c++/12/thread \
+ /usr/include/c++/12/bits/std_thread.h /usr/include/c++/12/tuple \
+ /usr/include/c++/12/bits/uses_allocator.h \
  /usr/include/c++/12/bits/unique_ptr.h \
- /usr/include/c++/12/bits/this_thread_sleep.h
+ /usr/include/c++/12/bits/this_thread_sleep.h \
+ /usr/include/c++/12/stdlib.h /usr/include/arpa/inet.h \
+ /usr/include/netinet/in.h /usr/include/x86_64-linux-gnu/bits/in.h \
+ /usr/include/c++/12/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/12/sstream /usr/include/c++/12/bits/sstream.tcc

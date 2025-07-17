@@ -226,19 +226,29 @@ CMakeFiles/server.dir/src/common/Board.cpp.o: /home/danydev/Documentos/PROYECTOS
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/stdlib.h \
   /usr/include/c++/12/queue \
   /usr/include/c++/12/deque \
   /usr/include/c++/12/bits/stl_deque.h \
   /usr/include/c++/12/bits/deque.tcc \
   /usr/include/c++/12/bits/stl_heap.h \
   /usr/include/c++/12/bits/stl_queue.h \
-  /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/cassert \
   /usr/include/assert.h \
   /usr/include/c++/12/iomanip \
   /usr/include/c++/12/locale \
   /usr/include/c++/12/bits/locale_facets_nonio.h \
-  /usr/include/c++/12/ctime \
   /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
   /usr/include/libintl.h \
@@ -474,6 +484,18 @@ CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o: /home/danydev/Documentos/PR
   /usr/include/c++/12/bit \
   /usr/include/c++/12/pstl/glue_numeric_defs.h \
   /usr/include/c++/12/pstl/execution_defs.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/thread \
+  /usr/include/c++/12/bits/std_thread.h \
+  /usr/include/c++/12/tuple \
+  /usr/include/c++/12/bits/uses_allocator.h \
+  /usr/include/c++/12/bits/unique_ptr.h \
+  /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/stdlib.h \
   /usr/include/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
@@ -493,18 +515,7 @@ CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o: /home/danydev/Documentos/PR
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /usr/include/linux/close_range.h \
-  /usr/include/c++/12/chrono \
-  /usr/include/c++/12/bits/chrono.h \
-  /usr/include/c++/12/ratio \
-  /usr/include/c++/12/ctime \
-  /usr/include/c++/12/bits/parse_numbers.h \
-  /usr/include/c++/12/thread \
-  /usr/include/c++/12/bits/std_thread.h \
-  /usr/include/c++/12/tuple \
-  /usr/include/c++/12/bits/uses_allocator.h \
-  /usr/include/c++/12/bits/unique_ptr.h \
-  /usr/include/c++/12/bits/this_thread_sleep.h
+  /usr/include/linux/close_range.h
 
 CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp \
   /usr/include/stdc-predef.h \
@@ -985,6 +996,8 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: /home/danydev/Documentos/PROYECTO
   /usr/include/c++/12/bits/atomic_base.h \
   /usr/include/c++/12/bits/atomic_lockfree_defines.h \
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
+  /usr/include/c++/12/chrono \
+  /usr/include/c++/12/stdlib.h \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
@@ -992,8 +1005,7 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: /home/danydev/Documentos/PROYECTO
   /usr/include/string.h \
   /usr/include/strings.h \
   /usr/include/c++/12/sstream \
-  /usr/include/c++/12/bits/sstream.tcc \
-  /usr/include/c++/12/chrono
+  /usr/include/c++/12/bits/sstream.tcc
 
 CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp \
   /usr/include/stdc-predef.h \
@@ -1296,12 +1308,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/NetworkUtils.h:
 
-/usr/include/c++/12/bits/this_thread_sleep.h:
-
-/usr/include/c++/12/bits/unique_ptr.h:
-
-/usr/include/c++/12/bits/parse_numbers.h:
-
 /usr/include/linux/close_range.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
@@ -1318,23 +1324,27 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:
 
+/usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-baud.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:
+
+/usr/include/x86_64-linux-gnu/bits/termios.h:
+
+/usr/include/termios.h:
+
+/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp:
+
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-/usr/include/c++/12/bits/chrono.h:
-
-/usr/include/c++/12/clocale:
-
-/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp:
 
 /usr/include/c++/12/tr1/ell_integral.tcc:
 
 /usr/include/c++/12/tr1/beta_function.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:
 
 /usr/include/c++/12/cwchar:
 
@@ -1364,21 +1374,17 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/c++/12/cerrno:
 
+/usr/include/c++/12/stdlib.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/c++/12/tr1/poly_hermite.tcc:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
-/usr/include/c++/12/chrono:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-baud.h:
 
 /usr/include/x86_64-linux-gnu/bits/sockaddr.h:
 
@@ -1393,8 +1399,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/12/bits/char_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
@@ -1546,10 +1550,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/c++/12/bits/stl_iterator.h:
 
-/usr/include/c++/12/bits/std_thread.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
 /usr/include/c++/12/bits/locale_classes.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
@@ -1557,6 +1557,10 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 /usr/include/c++/12/bits/uniform_int_dist.h:
 
 /usr/include/c++/12/bits/ptr_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/c++/12/bits/std_thread.h:
 
 /usr/include/wchar.h:
 
@@ -1619,10 +1623,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 /usr/include/c++/12/bits/stringfwd.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/c++/12/tuple:
-
-/usr/include/c++/12/bits/functional_hash.h:
 
 /usr/include/stdio.h:
 
@@ -1742,8 +1742,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/c++/12/bits/basic_string.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:
-
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/c++/12/bit:
@@ -1794,6 +1792,8 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
+/usr/include/c++/12/bits/this_thread_sleep.h:
+
 /usr/include/c++/12/cassert:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
@@ -1818,15 +1818,23 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/c++/12/bits/streambuf.tcc:
 
+/usr/include/c++/12/bits/parse_numbers.h:
+
 /usr/include/c++/12/string_view:
 
 /usr/include/c++/12/bits/locale_facets.h:
 
 /usr/include/c++/12/bits/ostream.tcc:
 
+/usr/include/c++/12/bits/functional_hash.h:
+
+/usr/include/c++/12/tuple:
+
 /usr/include/c++/12/tr1/hypergeometric.tcc:
 
 /usr/include/c++/12/cwctype:
+
+/usr/include/c++/12/bits/unique_ptr.h:
 
 /usr/include/c++/12/tr1/riemann_zeta.tcc:
 
@@ -1835,6 +1843,20 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 /usr/include/c++/12/ctime:
 
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/c++/12/chrono:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
+
+/usr/include/c++/12/clocale:
+
+/usr/include/c++/12/bits/chrono.h:
 
 /usr/include/c++/12/queue:
 
@@ -1856,12 +1878,6 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 
 /usr/include/c++/12/bits/locale_facets_nonio.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
-
-/usr/include/x86_64-linux-gnu/sys/socket.h:
-
-/usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
-
 /usr/include/c++/12/thread:
 
 /usr/include/c++/12/bits/cpp_type_traits.h:
@@ -1877,5 +1893,3 @@ CMakeFiles/server.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PRO
 /usr/include/c++/12/bits/basic_ios.h:
 
 /usr/include/c++/12/sstream:
-
-/usr/include/termios.h:
