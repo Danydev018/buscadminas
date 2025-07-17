@@ -239,24 +239,26 @@ void Server::gameLoop() {
         } else {  
             board.reveal(mv.row, mv.col);  
         }  
-          
+        
         // Actualizar display del tablero  
         clearScreen();  
         gotoxy(1, 1);  
         drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
         board.drawGotoxy(4, 2);  
-  
-        // Verificar condiciones de fin de juego  
-        if (!mv.isFlag && board.isMine(mv.row, mv.col)) {  
-            std::string result = turnHost ? "Has perdido💣" : "Has ganado🏁";  
-            showAllMines(board, result);  
-            break;  
-        }  
         
-        if (board.allSafeRevealed()) {  
-            std::string result = turnHost ? "Has ganado🏁" : "Has perdido💣";  
-            showAllMines(board, result);  
-            break;  
+        // SOLO verificar condiciones de fin de juego si fue una revelación  
+        if (!mv.isFlag) {  
+            if (board.isMine(mv.row, mv.col)) {  
+                std::string result = turnHost ? "Has perdido💣" : "Has ganado🏁";  
+                showAllMines(board, result);  
+                break;  
+            }  
+            
+            if (board.allSafeRevealed()) {  
+                std::string result = turnHost ? "Has ganado🏁" : "Has perdido💣";  
+                showAllMines(board, result);  
+                break;  
+            }  
         }  
           
         // Cambiar turno  
