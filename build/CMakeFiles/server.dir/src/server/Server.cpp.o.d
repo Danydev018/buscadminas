@@ -221,5 +221,9 @@ CMakeFiles/server.dir/src/server/Server.cpp.o: \
  /usr/include/c++/12/chrono /usr/include/c++/12/stdlib.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/c++/12/cstring \
- /usr/include/string.h /usr/include/strings.h /usr/include/c++/12/sstream \
+ /usr/include/string.h /usr/include/strings.h /usr/include/c++/12/fstream \
+ /usr/include/c++/12/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+ /usr/include/c++/12/bits/fstream.tcc /usr/include/c++/12/sstream \
  /usr/include/c++/12/bits/sstream.tcc
