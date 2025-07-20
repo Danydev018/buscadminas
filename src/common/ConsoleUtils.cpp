@@ -98,13 +98,13 @@ void showAllMines(const Board& board, const std::string& gameResult) {
     board.drawGotoxy(4, 2);  
       
     // Mostrar todas las minas  
-    for (int r = 0; r < board.rows(); r++) {  
-        for (int c = 0; c < board.cols(); c++) {  
-            if (board.isMine(r, c)) {  
-                highlightCell(r, c, "💣");  
-            }  
-        }  
-    }  
+    for (int r = 0; r < board.rows(); r++) {
+        for (int c = 0; c < board.cols(); c++) {
+            if (board.isMine(r, c)) {
+                highlightCell(r, c, "💣", 4, 2); // Usar mismo offset que drawGotoxy
+            }
+        }
+    }
       
     // Mostrar el resultado del juego DESPUÉS de las minas  
     gotoxy(2, board.rows() + 5);  

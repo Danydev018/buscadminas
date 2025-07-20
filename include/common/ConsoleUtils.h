@@ -30,11 +30,11 @@ void gotoxy(int x, int y);
 void drawFrameAroundBoard(int startX, int startY, int width, int height);
 void updateBoardDisplay(int startX, int startY, const Board& board);
 
-inline void highlightCell(int row, int col, const std::string& symbol) {      
-    int screenX = 4 + col * 3;  // Mantener esta fórmula  
-    int screenY = 2 + row;      // Cambiar a: 2 + row + 1 para compensar  
-    gotoxy(screenX, screenY);      
-    std::cout << "\033[35m" << symbol << "\033[0m";    
+inline void highlightCell(int row, int col, const std::string& symbol, int startX = 4, int startY = 2) {
+    int screenX = startX + col * 3;
+    int screenY = startY + row;
+    gotoxy(screenX, screenY);
+    std::cout << "\033[35m" << symbol << "\033[0m";
 }
 
 void showAllMines(const Board& board, const std::string& gameResult);

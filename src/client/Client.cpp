@@ -252,8 +252,13 @@ void Client::play() {
     }  
     
   
-    // Limpieza de recursos  
-    close(sockfd);  
-    delete board;  
-    board = nullptr;  
+    // Esperar input antes de limpiar recursos
+    gotoxy(2, board ? board->rows() + 10 : 2);
+    std::cout << "Presione Enter para volver al menú principal..." << std::endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+    // Limpieza de recursos
+    close(sockfd);
+    delete board;
+    board = nullptr;
 }

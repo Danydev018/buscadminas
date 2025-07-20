@@ -268,9 +268,14 @@ void Server::gameLoop() {
     }  
 
   
-    // Limpieza de recursos  
-    close(clientSock);  
-    close(srvSock);  
+    // Esperar input antes de limpiar recursos
+    gotoxy(2, board.rows() + 10);
+    std::cout << "Presione Enter para volver al menú principal..." << std::endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+    // Limpieza de recursos
+    close(clientSock);
+    close(srvSock);
 }
 
 void Server::run() {  
