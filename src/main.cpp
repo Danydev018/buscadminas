@@ -125,6 +125,7 @@ void runSinglePlayer() {
 
 int main() {
     while (true) {
+        clearScreen();
         std::cout << "Buscaminas - Unificado" << std::endl;
         std::cout << "Seleccione el modo:\n1. Jugador individual\n2. Multijugador\n3. Salir\nOpción: ";
         int opcion;
@@ -132,6 +133,7 @@ int main() {
         if (opcion == 1) {
             runSinglePlayer();
         } else if (opcion == 2) {
+            clearScreen();
             std::cout << "\nMultijugador:\n1. Host (Servidor)\n2. Join (Cliente)\n3. Volver\nOpción: ";
             int subopcion;
             std::cin >> subopcion;
