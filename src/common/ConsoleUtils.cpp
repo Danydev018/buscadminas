@@ -86,7 +86,7 @@ void updateBoardDisplay(int startX, int startY, const Board& board) {
 }
 
 void drawStatusBar(const std::string& msg, int rowY) {
-    gotoxy(2, rowY);
+    gotoxy(2, rowY + 5);
     std::cout << "\033[36m" << msg << "\033[0m";  // Cyan
 }
 

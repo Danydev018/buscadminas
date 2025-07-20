@@ -108,9 +108,11 @@ void Client::connectTo(int idx) {
     }  
   
     clearScreen();  
-    gotoxy(1,1);  
     board = new Board(R, C, M, seed);  
+    gotoxy(1, 1);  
+    drawFrameAroundBoard(4, 2, board->cols(), board->rows()); 
     board->drawGotoxy(4, 2);  
+   
 }
 
 void Client::play() {  
@@ -145,7 +147,7 @@ void Client::play() {
                     drawFrameAroundBoard(4, 2, board->cols(), board->rows());  
                     board->drawGotoxy(4, 2);  
   
-                    gotoxy(4 + cursorCol * 3, 2 + cursorRow);  // Cambiar de * 4 a * 3  
+                    gotoxy(4 + cursorCol * 3, 1 + cursorRow);  
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
@@ -184,9 +186,10 @@ void Client::play() {
             if (NetworkUtils::safeSend(sockfd, &mv, sizeof(mv)) <= 0) {  
                 std::cerr << "Error enviando movimiento al servidor" << std::endl;  
                 break;  
-            }  
-              
-            drawStatusBar("⏳ Esperando movimiento del rival…", board->rows() + 5);  
+            }   
+            
+            gotoxy(2, board->rows() + 5);
+            std::cout << "⏳ Esperando movimiento del rival…";   
   
         } else {  
             // Turno del servidor - recibir movimiento  
@@ -209,13 +212,9 @@ void Client::play() {
                 continue; // Continuar esperando un movimiento válido  
             }  
 
-            highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  
-            // Mostrar feedback visual del movimiento del rival  
-            gotoxy(1, 1);  
-            std::cout << "🔁 Movimiento rival en (" << (int)mv.row << "," << (int)mv.col << ")";  
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));  
+            // highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
+            // std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
         }  
   
         // Aplicar movimiento localmente al tablero  

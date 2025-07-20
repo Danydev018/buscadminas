@@ -112,10 +112,11 @@ void Server::gameLoop() {
         return;  
     }  
   
-    clearScreen();  
-    std::cout << "Tablero inicial (host):\n";  
+    clearScreen();   
+    gotoxy(1, 1);  
+    drawFrameAroundBoard(4, 2, board.cols(), board.rows()); 
     board.drawGotoxy(4, 2);  
-  
+    gotoxy(board.cols(), board.rows() + 4);  
     std::cout << "Esperando cliente…\n";  
     int clientSock = accept(srvSock, nullptr, nullptr);  
     if (clientSock == -1) {  
@@ -123,6 +124,7 @@ void Server::gameLoop() {
         close(srvSock);  
         return;  
     }  
+    gotoxy(board.cols(), board.rows() + 6);
     std::cout << "Cliente conectado\n";  
   
     // Enviar configuración del juego  
@@ -165,7 +167,7 @@ void Server::gameLoop() {
                     drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
                     board.drawGotoxy(4, 2);  
   
-                    gotoxy(4 + cursorCol * 3, 2 + cursorRow);  // Cambiar de * 4 a * 3  
+                    gotoxy(4 + cursorCol * 3, 1 + cursorRow);  
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
@@ -198,7 +200,7 @@ void Server::gameLoop() {
                 }  
             }  
               
-            drawStatusBar("⏳ Esperando movimiento del rival…", board.rows() + 5);  
+            // drawStatusBar("⏳ Esperando movimiento del rival…", board.rows() + 5);  
               
             // Enviar movimiento al cliente con verificación de errores  
             if (NetworkUtils::safeSend(clientSock, &mv, sizeof(mv)) <= 0) {  
@@ -228,13 +230,9 @@ void Server::gameLoop() {
             }  
 
             // Después de recibir un movimiento del rival  
-            highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
-  
-            // Mostrar feedback visual del movimiento del rival  
-            gotoxy(1, 1);  
-            std::cout << "🔁 Movimiento rival en (" << (int)mv.row << "," << (int)mv.col << ")";  
-            std::this_thread::sleep_for(std::chrono::milliseconds(300));  
+            // highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
+            // std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
         }  
   
         // Aplicar movimiento al tablero  
