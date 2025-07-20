@@ -103,8 +103,12 @@ void runSinglePlayer() {
             gotoxy(1, 1);
             drawFrameAroundBoard(4, 2, board.cols(), board.rows());
             board.drawGotoxy(4, 2);
-            gotoxy(4 + cursorCol * 3, 2 + cursorRow);
-            std::cout << "\033[35m◉\033[0m";
+            // Solo dibujar highlight si la celda NO está revelada
+            if (board.at(cursorRow, cursorCol).state != Revealed) {
+                if (board.rows() >= 10) gotoxy(4 + cursorCol * 3, 1 + cursorRow);    
+                else gotoxy(4 + cursorCol * 3, 2 + cursorRow); 
+                std::cout << "\033[35m◉\033[0m";
+            }
             gotoxy(2, board.rows() + 6);
             std::cout << "\033[92m┌─ CONTROLES ─────────────────────────────────────┐\033[0m\n";
             gotoxy(2, board.rows() + 7);
