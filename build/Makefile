@@ -117,37 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named server
+# Target rules for targets named buscadminas_unificado
 
 # Build rule for target.
-server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
-.PHONY : server
+buscadminas_unificado: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 buscadminas_unificado
+.PHONY : buscadminas_unificado
 
 # fast build rule for target.
-server/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-.PHONY : server/fast
-
-#=============================================================================
-# Target rules for targets named client
-
-# Build rule for target.
-client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
-.PHONY : client
-
-# fast build rule for target.
-client/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-.PHONY : client/fast
+buscadminas_unificado/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/build
+.PHONY : buscadminas_unificado/fast
 
 src/client/Client.o: src/client/Client.cpp.o
 .PHONY : src/client/Client.o
 
 # target to build an object file
 src/client/Client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o
 .PHONY : src/client/Client.cpp.o
 
 src/client/Client.i: src/client/Client.cpp.i
@@ -155,7 +142,7 @@ src/client/Client.i: src/client/Client.cpp.i
 
 # target to preprocess a source file
 src/client/Client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.i
 .PHONY : src/client/Client.cpp.i
 
 src/client/Client.s: src/client/Client.cpp.s
@@ -163,7 +150,7 @@ src/client/Client.s: src/client/Client.cpp.s
 
 # target to generate assembly for a file
 src/client/Client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/Client.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.s
 .PHONY : src/client/Client.cpp.s
 
 src/client/main_client.o: src/client/main_client.cpp.o
@@ -171,7 +158,7 @@ src/client/main_client.o: src/client/main_client.cpp.o
 
 # target to build an object file
 src/client/main_client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o
 .PHONY : src/client/main_client.cpp.o
 
 src/client/main_client.i: src/client/main_client.cpp.i
@@ -179,7 +166,7 @@ src/client/main_client.i: src/client/main_client.cpp.i
 
 # target to preprocess a source file
 src/client/main_client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.i
 .PHONY : src/client/main_client.cpp.i
 
 src/client/main_client.s: src/client/main_client.cpp.s
@@ -187,7 +174,7 @@ src/client/main_client.s: src/client/main_client.cpp.s
 
 # target to generate assembly for a file
 src/client/main_client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client/main_client.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.s
 .PHONY : src/client/main_client.cpp.s
 
 src/common/Board.o: src/common/Board.cpp.o
@@ -195,8 +182,7 @@ src/common/Board.o: src/common/Board.cpp.o
 
 # target to build an object file
 src/common/Board.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o
 .PHONY : src/common/Board.cpp.o
 
 src/common/Board.i: src/common/Board.cpp.i
@@ -204,8 +190,7 @@ src/common/Board.i: src/common/Board.cpp.i
 
 # target to preprocess a source file
 src/common/Board.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.i
 .PHONY : src/common/Board.cpp.i
 
 src/common/Board.s: src/common/Board.cpp.s
@@ -213,8 +198,7 @@ src/common/Board.s: src/common/Board.cpp.s
 
 # target to generate assembly for a file
 src/common/Board.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/Board.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/Board.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.s
 .PHONY : src/common/Board.cpp.s
 
 src/common/ConsoleUtils.o: src/common/ConsoleUtils.cpp.o
@@ -222,8 +206,7 @@ src/common/ConsoleUtils.o: src/common/ConsoleUtils.cpp.o
 
 # target to build an object file
 src/common/ConsoleUtils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o
 .PHONY : src/common/ConsoleUtils.cpp.o
 
 src/common/ConsoleUtils.i: src/common/ConsoleUtils.cpp.i
@@ -231,8 +214,7 @@ src/common/ConsoleUtils.i: src/common/ConsoleUtils.cpp.i
 
 # target to preprocess a source file
 src/common/ConsoleUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.i
 .PHONY : src/common/ConsoleUtils.cpp.i
 
 src/common/ConsoleUtils.s: src/common/ConsoleUtils.cpp.s
@@ -240,8 +222,7 @@ src/common/ConsoleUtils.s: src/common/ConsoleUtils.cpp.s
 
 # target to generate assembly for a file
 src/common/ConsoleUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/ConsoleUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.s
 .PHONY : src/common/ConsoleUtils.cpp.s
 
 src/common/NetworkUtils.o: src/common/NetworkUtils.cpp.o
@@ -249,8 +230,7 @@ src/common/NetworkUtils.o: src/common/NetworkUtils.cpp.o
 
 # target to build an object file
 src/common/NetworkUtils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o
 .PHONY : src/common/NetworkUtils.cpp.o
 
 src/common/NetworkUtils.i: src/common/NetworkUtils.cpp.i
@@ -258,8 +238,7 @@ src/common/NetworkUtils.i: src/common/NetworkUtils.cpp.i
 
 # target to preprocess a source file
 src/common/NetworkUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.i
 .PHONY : src/common/NetworkUtils.cpp.i
 
 src/common/NetworkUtils.s: src/common/NetworkUtils.cpp.s
@@ -267,16 +246,39 @@ src/common/NetworkUtils.s: src/common/NetworkUtils.cpp.s
 
 # target to generate assembly for a file
 src/common/NetworkUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/common/NetworkUtils.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/common/NetworkUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s
 .PHONY : src/common/NetworkUtils.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/server/Server.o: src/server/Server.cpp.o
 .PHONY : src/server/Server.o
 
 # target to build an object file
 src/server/Server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o
 .PHONY : src/server/Server.cpp.o
 
 src/server/Server.i: src/server/Server.cpp.i
@@ -284,7 +286,7 @@ src/server/Server.i: src/server/Server.cpp.i
 
 # target to preprocess a source file
 src/server/Server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.i
 .PHONY : src/server/Server.cpp.i
 
 src/server/Server.s: src/server/Server.cpp.s
@@ -292,7 +294,7 @@ src/server/Server.s: src/server/Server.cpp.s
 
 # target to generate assembly for a file
 src/server/Server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/Server.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.s
 .PHONY : src/server/Server.cpp.s
 
 src/server/main_server.o: src/server/main_server.cpp.o
@@ -300,7 +302,7 @@ src/server/main_server.o: src/server/main_server.cpp.o
 
 # target to build an object file
 src/server/main_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o
 .PHONY : src/server/main_server.cpp.o
 
 src/server/main_server.i: src/server/main_server.cpp.i
@@ -308,7 +310,7 @@ src/server/main_server.i: src/server/main_server.cpp.i
 
 # target to preprocess a source file
 src/server/main_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.i
 .PHONY : src/server/main_server.cpp.i
 
 src/server/main_server.s: src/server/main_server.cpp.s
@@ -316,7 +318,7 @@ src/server/main_server.s: src/server/main_server.cpp.s
 
 # target to generate assembly for a file
 src/server/main_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server/main_server.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.s
 .PHONY : src/server/main_server.cpp.s
 
 # Help Target
@@ -327,8 +329,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... client"
-	@echo "... server"
+	@echo "... buscadminas_unificado"
 	@echo "... src/client/Client.o"
 	@echo "... src/client/Client.i"
 	@echo "... src/client/Client.s"
@@ -344,6 +345,9 @@ help:
 	@echo "... src/common/NetworkUtils.o"
 	@echo "... src/common/NetworkUtils.i"
 	@echo "... src/common/NetworkUtils.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/server/Server.o"
 	@echo "... src/server/Server.i"
 	@echo "... src/server/Server.s"

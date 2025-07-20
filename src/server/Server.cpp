@@ -166,8 +166,8 @@ void Server::gameLoop() {
                     gotoxy(1, 1);  
                     drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
                     board.drawGotoxy(4, 2);  
-  
-                    gotoxy(4 + cursorCol * 3, 1 + cursorRow);  
+                    if (board.rows() >= 10) gotoxy(4 + cursorCol * 3, 1 + cursorRow);  
+                    else gotoxy(4 + cursorCol * 3, 2 + cursorRow);  
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   

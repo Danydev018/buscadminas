@@ -1,7 +1,9 @@
+
 #include "server/Server.h"
+#include "entrypoints.h"
 
 
-int main() {
+void main_server() {
     int filas, columnas, dificultad;
     std::cout << "Ingrese cantidad de filas (5-20): ";
     while (!(std::cin >> filas) || filas < 5 || filas > 20) {
@@ -33,5 +35,5 @@ int main() {
     Server srv("Sala1", filas, columnas, minas);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     srv.run();
-    return 0;
+    // No return, función void
 }

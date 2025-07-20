@@ -1,7 +1,8 @@
 #include "client/Client.h"
+#include "entrypoints.h"
 #include <iostream>
 
-int main() {
+void main_client() {
     Client cli;
     cli.discover();
     std::cout<<"Selecciona servidor: ";
@@ -10,5 +11,5 @@ int main() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cli.play();
-    return 0;
+    // No return, función void
 }

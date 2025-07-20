@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/server.dir/src/common/Board.cpp.o CMakeFiles/server.dir/src/server/Server.cpp.o CMakeFiles/server.dir/src/server/main_server.cpp.o CMakeFiles/server.dir/src/common/ConsoleUtils.cpp.o CMakeFiles/server.dir/src/common/NetworkUtils.cpp.o -o server 
