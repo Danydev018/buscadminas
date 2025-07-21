@@ -266,6 +266,12 @@ CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o: /home/danydev/Docu
   /usr/include/c++/12/bits/unique_ptr.h \
   /usr/include/c++/12/bits/this_thread_sleep.h \
   /usr/include/c++/12/stdlib.h \
+  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ScoreSystem.h \
+  /usr/include/c++/12/fstream \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+  /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
@@ -2032,6 +2038,12 @@ CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o: /home/danydev/Docu
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
   /usr/include/c++/12/chrono \
   /usr/include/c++/12/stdlib.h \
+  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ScoreSystem.h \
+  /usr/include/c++/12/fstream \
+  /usr/include/c++/12/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+  /usr/include/c++/12/bits/fstream.tcc \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
@@ -2321,12 +2333,6 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/c++/12/bits/stl_algo.h:
 
-/usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h:
-
-/usr/include/c++/12/fstream:
-
-/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ScoreSystem.h:
-
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/termios-misc.h:
@@ -2374,6 +2380,12 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /usr/include/string.h:
 
 /usr/include/netinet/in.h:
+
+/usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h:
+
+/usr/include/c++/12/fstream:
+
+/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ScoreSystem.h:
 
 /usr/include/c++/12/stdlib.h:
 

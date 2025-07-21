@@ -31,6 +31,10 @@ public:
     static void saveScoreToCSV(const GameScore& score, const std::string& playerName = "Player");  
     static std::vector<GameScore> loadScoresFromCSV();  
     static void displayHighScores();  
+    static void displayMultiplayerResults(const GameScore& player1Score,   
+                                              const GameScore& player2Score,  
+                                              const std::string& player1Name,  
+                                              const std::string& player2Name);
   
 private:  
     static const std::string CSV_FILE;  

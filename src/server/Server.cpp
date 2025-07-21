@@ -1,6 +1,7 @@
 #include "server/Server.h"
 #include "common/ConsoleUtils.h"
 #include "common/NetworkCommon.h"
+#include "common/ScoreSystem.h"
 #include <arpa/inet.h>
 #include <ctime>
 #include <cstring>
@@ -10,6 +11,7 @@
 #include <unistd.h>
 #include <sstream>
 #include <chrono>
+
 
 
 Server::Server(const std::string& name, int rows, int cols, int mines)
@@ -141,7 +143,12 @@ void Server::gameLoop() {
         return;  
     }  
   
-    bool turnHost = true;  
+    bool turnHost = true; 
+    // Variables de puntuación para ambos jugadores  
+    auto startTime = std::chrono::steady_clock::now();  
+    int hostClicks = 0, clientClicks = 0;  
+    int hostFlags = 0, clientFlags = 0;  
+    int difficulty = 2; // Medio por defecto, se puede obtener de main_server.cpp 
     while (true) {  
         Move mv{};  
           
@@ -183,14 +190,17 @@ void Server::gameLoop() {
                     mv.row = static_cast<uint8_t>(cursorRow);  
                     mv.col = static_cast<uint8_t>(cursorCol);  
                     mv.isFlag = 1;  
+                    hostClicks++;  
+                    hostFlags++;  
                     break;  
                 }  
                 else if (key == KEY_ENTER) {  
                     mv.row = static_cast<uint8_t>(cursorRow);  
                     mv.col = static_cast<uint8_t>(cursorCol);  
                     mv.isFlag = 0;  
+                    hostClicks++;  
                     break;  
-                }  
+                }
                 else if (key == KEY_QUIT) {  
                     gotoxy(2, board.rows() + 5);  
                     std::cout << "🔚 Saliendo del juego...";  
@@ -229,6 +239,13 @@ void Server::gameLoop() {
                 continue; // Continuar esperando un movimiento válido  
             }  
 
+            if (mv.isFlag) {  
+                clientClicks++;  
+                clientFlags++;  
+            } else {  
+                clientClicks++;  
+}
+
             // Después de recibir un movimiento del rival  
             // highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
             // std::this_thread::sleep_for(std::chrono::milliseconds(500));
@@ -250,18 +267,51 @@ void Server::gameLoop() {
         
         // SOLO verificar condiciones de fin de juego si fue una revelación  
         if (!mv.isFlag) {  
-            if (board.isMine(mv.row, mv.col)) {  
-                std::string result = turnHost ? "Has perdido💣" : "Has ganado🏁";  
-                showAllMines(board, result);  
-                break;  
-            }  
+        if (board.isMine(mv.row, mv.col)) {  
+            std::string result = turnHost ? "Has perdido💣" : "Has ganado🏁";  
+            showAllMines(board, result);  
             
-            if (board.allSafeRevealed()) {  
-                std::string result = turnHost ? "Has ganado🏁" : "Has perdido💣";  
-                showAllMines(board, result);  
-                break;  
-            }  
+            // Calcular puntuaciones para ambos jugadores  
+            auto endTime = std::chrono::steady_clock::now();  
+            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
+            
+            // Puntuación del host  
+            bool hostWon = !turnHost;  
+            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,   
+                                                                gameTime, hostClicks, hostFlags, hostWon);  
+            
+            // Puntuación del cliente    
+            bool clientWon = turnHost;  
+            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, clientClicks, clientFlags, clientWon);  
+            
+            // Mostrar resultados  
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
+            
+            break;  
         }  
+        
+        if (board.allSafeRevealed()) {  
+            std::string result = turnHost ? "Has ganado🏁" : "Has perdido💣";  
+            showAllMines(board, result);  
+            
+            // Calcular puntuaciones para victoria completa  
+            auto endTime = std::chrono::steady_clock::now();  
+            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
+            
+            bool hostWon = turnHost;  
+            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, hostClicks, hostFlags, hostWon);  
+            
+            bool clientWon = !turnHost;  
+            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, clientClicks, clientFlags, clientWon);  
+            
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
+            
+            break;  
+        }  
+    }  
           
         // Cambiar turno  
         turnHost = !turnHost;  

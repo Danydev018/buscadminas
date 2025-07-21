@@ -2,6 +2,7 @@
 #include "common/ConsoleUtils.h"
 #include "common/NetworkUtils.h"
 #include "common/NetworkCommon.h"
+#include "common/ScoreSystem.h"
 #include <arpa/inet.h>
 #include <chrono>
 #include <cstring>
@@ -122,6 +123,11 @@ void Client::play() {
     }  
   
     bool turnHost = true;  
+    auto startTime = std::chrono::steady_clock::now();  
+    int clientClicks = 0, hostClicks = 0;  
+    int clientFlags = 0, hostFlags = 0;  
+    int difficulty = 2; // Se puede sincronizar con el servidor
+
     while (true) {  
         Move mv{};  
           
@@ -164,14 +170,17 @@ void Client::play() {
                     mv.row = static_cast<uint8_t>(cursorRow);  
                     mv.col = static_cast<uint8_t>(cursorCol);  
                     mv.isFlag = 1;  
+                    clientClicks++;  
+                    clientFlags++;  
                     break;  
                 }  
                 else if (key == KEY_ENTER) {  
                     mv.row = static_cast<uint8_t>(cursorRow);  
                     mv.col = static_cast<uint8_t>(cursorCol);  
                     mv.isFlag = 0;  
+                    clientClicks++;  
                     break;  
-                }  
+                }
                 else if (key == KEY_QUIT) {  
                     gotoxy(2, board->rows() + 5);  
                     std::cout << "🔚 Saliendo del juego...";  
@@ -212,6 +221,13 @@ void Client::play() {
                 continue; // Continuar esperando un movimiento válido  
             }  
 
+            // Rastrear movimientos del servidor  
+            if (mv.isFlag) {  
+                hostClicks++;  
+                hostFlags++;  
+            } else {  
+                hostClicks++;  
+            }
             // highlightCell(mv.row, mv.col, mv.isFlag ? "[🚩]" : "[!]");  
             // std::this_thread::sleep_for(std::chrono::milliseconds(500));
 

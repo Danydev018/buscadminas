@@ -295,3 +295,28 @@ int ScoreCalculator::calculateSizeMultiplier(int rows, int cols) {
     else if (totalCells <= 150) return 2;  // Tableros medianos  
     else return 3;                         // Tableros grandes  
 }
+
+void ScoreCalculator::displayMultiplayerResults(const GameScore& player1Score,   
+                                              const GameScore& player2Score,  
+                                              const std::string& player1Name,  
+                                              const std::string& player2Name) {  
+    clearScreen();  
+    gotoxy(1, 1);  
+      
+    std::cout << "\033[96m╔══════════════════════════════════════════════════╗\033[0m\n";  
+    std::cout << "\033[96m║                RESULTADOS MULTIJUGADOR           ║\033[0m\n";  
+    std::cout << "\033[96m╠══════════════════════════════════════════════════╣\033[0m\n";  
+      
+    // Mostrar puntuación de ambos jugadores  
+    std::cout << "\033[96m║\033[0m               " << std::setw(4) << std::left << player1Name;  
+    std::cout << "  vs    " << std::setw(10) << std::left << player2Name << "             \033[96m║\033[0m\n";  
+      
+    std::cout << "\033[96m║\033[0m Puntuación:   " << std::setw(6) << player1Score.totalScore;  
+    std::cout << "       " << std::setw(8) << player2Score.totalScore << "              \033[96m║\033[0m\n";  
+      
+    std::string winner = (player1Score.totalScore > player2Score.totalScore) ? player1Name :   
+                        (player2Score.totalScore > player1Score.totalScore) ? player2Name : "EMPATE";  
+    std::cout << "\033[96m╠══════════════════════════════════════════════════╣\033[0m\n";     
+    std::cout << "\033[96m║\033[0m GANADOR: " << std::setw(35) << std::left << winner << "     \033[96m║\033[0m\n";  
+    std::cout << "\033[96m╚══════════════════════════════════════════════════╝\033[0m\n";  
+}
