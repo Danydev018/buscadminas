@@ -101,7 +101,7 @@ void Client::connectTo(int idx) {
     R = gi.rows;  
     C = gi.cols;  
     M = gi.mines;  
-      
+    difficulty = gi.difficulty; // Sincronizar dificultad
     // Validar parámetros  
     if (R == 0 || C == 0 || M == 0 || R > 50 || C > 50 || M >= R*C) {  
         std::cerr << "Parámetros de juego inválidos" << std::endl;  
@@ -114,7 +114,7 @@ void Client::connectTo(int idx) {
     gotoxy(1, 1);  
     drawFrameAroundBoard(4, 2, board->cols(), board->rows()); 
     board->drawGotoxy(4, 2);  
-   
+
 }
 
 void Client::play() {  
@@ -128,7 +128,7 @@ void Client::play() {
     auto startTime = std::chrono::steady_clock::now();  
     int clientClicks = 0, hostClicks = 0;  
     int clientFlags = 0, hostFlags = 0;  
-    int difficulty = 2; // Se puede sincronizar con el servidor
+    // int difficulty = 2; // Ahora se sincroniza en connectTo
     auto lastTimeUpdate = std::chrono::steady_clock::now();  
     bool statsDisplayed = false;
 
@@ -324,17 +324,20 @@ void Client::play() {
                 winnerLabel = "CLIENT";
                 winnerScore = &clientScore;
             }
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            gotoxy(2, board ? board->rows() + 15 : 15);
-            std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
-            std::cout.flush();
-            std::getline(std::cin, winnerName);
-            if (winnerName.empty()) winnerName = winnerLabel;
-            winnerScore->won = true;
-            ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
-            gotoxy(2, board ? board->rows() + 17 : 17);
-            std::cout << "Puntaje guardado." << std::endl;
+            // Solo pedir nombre y guardar si el cliente ganó
+            if (winnerLabel == "CLIENT") {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                gotoxy(2, board ? board->rows() + 15 : 15);
+                std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
+                std::cout.flush();
+                std::getline(std::cin, winnerName);
+                if (winnerName.empty()) winnerName = winnerLabel;
+                winnerScore->won = true;
+                ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
+                gotoxy(2, board ? board->rows() + 17 : 17);
+                std::cout << "Puntaje guardado." << std::endl;
+            }
             break;
         }  
         
@@ -367,17 +370,20 @@ void Client::play() {
                 winnerLabel = "HOST";
                 winnerScore = &hostScore;
             }
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            gotoxy(2, board ? board->rows() + 15 : 15);
-            std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
-            std::cout.flush();
-            std::getline(std::cin, winnerName);
-            if (winnerName.empty()) winnerName = winnerLabel;
-            winnerScore->won = true;
-            ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
-            gotoxy(2, board ? board->rows() + 17 : 17);
-            std::cout << "Puntaje guardado." << std::endl;
+            // Solo pedir nombre y guardar si el cliente ganó
+            if (clientWon) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                gotoxy(2, board ? board->rows() + 15 : 15);
+                std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
+                std::cout.flush();
+                std::getline(std::cin, winnerName);
+                if (winnerName.empty()) winnerName = winnerLabel;
+                winnerScore->won = true;
+                ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
+                gotoxy(2, board ? board->rows() + 17 : 17);
+                std::cout << "Puntaje guardado." << std::endl;
+            }
             break;
         }  
     } 

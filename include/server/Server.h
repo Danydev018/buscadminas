@@ -10,7 +10,7 @@
   
 class Server {  
 public:  
-    Server(const std::string& name, int rows, int cols, int mines);  
+    Server(const std::string& name, int rows, int cols, int mines, int difficulty);  
     ~Server();  
     void run();  
     void stop();  
@@ -18,6 +18,7 @@ public:
 private:  
     std::string roomName;  
     int         R, C, M;  
+    int         difficulty;  
     uint32_t    seed;  
     Board       board;  
     bool        turnHost{true};  

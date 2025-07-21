@@ -14,9 +14,9 @@
 
 
 
-Server::Server(const std::string& name, int rows, int cols, int mines)
+Server::Server(const std::string& name, int rows, int cols, int mines, int difficulty)
   : roomName(name),
-    R(rows), C(cols), M(mines),
+    R(rows), C(cols), M(mines), difficulty(difficulty),
     seed(static_cast<uint32_t>(time(nullptr))),
     board(rows,cols,mines,seed)
 {}
@@ -135,7 +135,7 @@ void Server::gameLoop() {
     gi.rows = static_cast<uint8_t>(R);  
     gi.cols = static_cast<uint8_t>(C);  
     gi.mines = static_cast<uint8_t>(M);  
-      
+    gi.difficulty = static_cast<uint8_t>(difficulty); // Propagar dificultad real
     if (NetworkUtils::safeSend(clientSock, &gi, sizeof(gi)) <= 0) {  
         std::cerr << "\nError enviando configuración del juego" << std::endl;  
         close(clientSock);  
@@ -148,7 +148,7 @@ void Server::gameLoop() {
     auto startTime = std::chrono::steady_clock::now();  
     int hostClicks = 0, clientClicks = 0;  
     int hostFlags = 0, clientFlags = 0;  
-    int difficulty = 2; // Medio por defecto, se puede obtener de main_server.cpp 
+    // Usar el miembro difficulty del Server, no una variable local
 
     auto lastTimeUpdate = std::chrono::steady_clock::now();  
     bool statsDisplayed = false;
@@ -329,9 +329,18 @@ void Server::gameLoop() {
                 gotoxy(2, board.rows() + 15);  
                 std::cout << "¡HOST ha ganado! Ingrese su nombre (Enter para 'HOST'): ";  
                 std::string winnerName;  
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+                if (std::cin.peek() == '\n') std::cin.ignore();
                 std::getline(std::cin, winnerName);  
                 if (winnerName.empty()) winnerName = "HOST";  
+                hostScore.won = true;
+                hostScore.playerName = winnerName;
+                // Mapear dificultad numérica a string legible
+                switch (difficulty) {
+                    case 1: hostScore.difficulty = "facil"; break;
+                    case 2: hostScore.difficulty = "medio"; break;
+                    case 3: hostScore.difficulty = "dificil"; break;
+                    default: hostScore.difficulty = "desconocido"; break;
+                }
                 ScoreCalculator::saveMultiplayerScoreToCSV(hostScore, winnerName);  
             } else if (clientWon) {  
                 gotoxy(2, board.rows() + 15);  

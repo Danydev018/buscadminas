@@ -32,7 +32,7 @@ void main_server() {
     if (minas == 0) minas = 1;
     if (minas >= totalCasillas) minas = totalCasillas - 1;
 
-    Server srv("Sala1", filas, columnas, minas);
+    Server srv("Sala1", filas, columnas, minas, dificultad);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     srv.run();
     // No return, función void

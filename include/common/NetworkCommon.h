@@ -28,6 +28,7 @@ struct GameInit {
     uint8_t  rows;
     uint8_t  cols;
     uint8_t  mines;
+    uint8_t  difficulty;   // 1: facil, 2: medio, 3: dificil
 };
 
 #endif // NETWORKCOMMON_H

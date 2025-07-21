@@ -21,11 +21,12 @@ public:
     void connectTo(int index);  
     void play();  
   
-private:  
+private:
     Board*                     board{nullptr};  
     uint32_t                   seed;  
     bool                       turnHost{true};  
     int                        R, C, M;  
+    int                        difficulty = 2; // Por defecto medio, se sincroniza en connectTo
     int                        sockfd{-1};  
     std::vector<ServerInfo>    servers;  
   

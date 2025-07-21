@@ -388,7 +388,7 @@ void ScoreCalculator::saveMultiplayerScoreToCSV(const GameScore& score, const st
     if (!checkFile.good()) {  
         std::ofstream file(MULTIPLAYER_CSV_FILE);  
         if (file.is_open()) {  
-            file << "PlayerName,TotalScore,Difficulty,GameTime,BoardSize,TotalMines,TotalClicks,BasePoints,TimeBonus,EfficiencyBonus,SizeMultiplier\\n";  
+            file << "PlayerName,TotalScore,Difficulty,GameTime,BoardSize,TotalMines,TotalClicks,BasePoints,TimeBonus,EfficiencyBonus,SizeMultiplier\n";  
             file.close();  
         }  
     }  
@@ -396,17 +396,20 @@ void ScoreCalculator::saveMultiplayerScoreToCSV(const GameScore& score, const st
       
     std::ofstream file(MULTIPLAYER_CSV_FILE, std::ios::app);  
     if (file.is_open()) {  
-        file << escapeCSV(playerName) << ","  
-             << score.totalScore << ","  
-             << escapeCSV(score.difficulty) << ","  
-             << std::fixed << std::setprecision(2) << score.gameTimeSeconds << ","  
-             << score.boardRows << "x" << score.boardCols << ","  
-             << score.totalMines << ","  
-             << score.totalClicks << ","  
-             << score.basePoints << ","  
-             << score.timeBonus << ","  
-             << score.efficiencyBonus << ","  
-             << score.sizeMultiplier << "\n";  
+        // Usar el nombre pasado como argumento y también actualizar el campo playerName del score
+        GameScore scoreCopy = score;
+        scoreCopy.playerName = playerName;
+        file << escapeCSV(scoreCopy.playerName) << ","  
+             << scoreCopy.totalScore << ","  
+             << escapeCSV(scoreCopy.difficulty) << ","  
+             << std::fixed << std::setprecision(2) << scoreCopy.gameTimeSeconds << ","  
+             << scoreCopy.boardRows << "x" << scoreCopy.boardCols << ","  
+             << scoreCopy.totalMines << ","  
+             << scoreCopy.totalClicks << ","  
+             << scoreCopy.basePoints << ","  
+             << scoreCopy.timeBonus << ","  
+             << scoreCopy.efficiencyBonus << ","  
+             << scoreCopy.sizeMultiplier << "\n";  
         file.close();  
     }  
 }  
