@@ -123,10 +123,12 @@ void Client::play() {
     }  
   
     bool turnHost = true;  
+    // Variables de puntuación  
     auto startTime = std::chrono::steady_clock::now();  
     int clientClicks = 0, hostClicks = 0;  
     int clientFlags = 0, hostFlags = 0;  
     int difficulty = 2; // Se puede sincronizar con el servidor
+    
 
     while (true) {  
         Move mv{};  
@@ -250,18 +252,51 @@ void Client::play() {
         
         // SOLO verificar condiciones de fin de juego si fue una revelación  
         if (!mv.isFlag) {  
-            if (board->isMine(mv.row, mv.col)) {  
-                std::string result = !turnHost ? "Has perdido💣" : "Has ganado🏁";  
-                showAllMines(*board, result);  
-                break;  
-            }  
+        if (board->isMine(mv.row, mv.col)) {  
+            std::string result = !turnHost ? "Has perdido💣" : "Has ganado🏁";  
+            showAllMines(*board, result);  
+            
+            // Calcular puntuaciones para ambos jugadores  
+            auto endTime = std::chrono::steady_clock::now();  
+            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
+            
+            // Puntuación del cliente  
+            bool clientWon = turnHost;  
+            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, clientClicks, clientFlags, clientWon);  
+            
+            // Puntuación del host  
+            bool hostWon = !turnHost;  
+            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, hostClicks, hostFlags, hostWon);  
+            
+            // Mostrar resultados  
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
+            
+            break;  
+        }  
         
-            if (board->allSafeRevealed()) {  
-                std::string result = !turnHost ? "Has ganado🏁" : "Has perdido💣";  
-                showAllMines(*board, result);  
-                break;  
-            }  
-        } 
+        if (board->allSafeRevealed()) {  
+            std::string result = !turnHost ? "Has ganado🏁" : "Has perdido💣";  
+            showAllMines(*board, result);  
+            
+            // Calcular puntuaciones para victoria completa  
+            auto endTime = std::chrono::steady_clock::now();  
+            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
+            
+            bool clientWon = !turnHost;  
+            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, clientClicks, clientFlags, clientWon);  
+            
+            bool hostWon = turnHost;  
+            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,  
+                                                                gameTime, hostClicks, hostFlags, hostWon);  
+            
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
+            
+            break;  
+        }  
+    } 
   
         // Cambiar turno  
         turnHost = !turnHost;  
