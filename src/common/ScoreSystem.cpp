@@ -514,14 +514,16 @@ void ScoreCalculator::displayMultiplayerHighScores() {
 void ScoreCalculator::displayScoreSubmenu() {  
     while (true) {  
         clearScreen();  
-        std::cout << "\033[96m╔══════════════════════════════════════╗\033[0m\n";  
-        std::cout << "\033[96m║           PUNTUACIONES ALTAS         ║\033[0m\n";  
-        std::cout << "\033[96m╠══════════════════════════════════════╣\033[0m\n";  
-        std::cout << "\033[96m║  1. Modo Individual                  ║\033[0m\n";  
-        std::cout << "\033[96m║  2. Modo Multijugador                ║\033[0m\n";  
-        std::cout << "\033[96m║  3. Volver al menú principal         ║\033[0m\n";  
-        std::cout << "\033[96m╚══════════════════════════════════════╝\033[0m\n";  
-        std::cout << "Seleccione una opción: ";  
+        std::cout << "\033[96m╔══╗\033[92m═════════════════\033[31m═══════════════\033[96m╔══╗\033[0m\n";  
+        std::cout << "\033[92m╠══╝          \033[0mPUNTUACIONES ALTAS\033[31m    ╚══╣\033[0m\n";  
+        std::cout << "\033[92m╠════════════════════\033[31m══════════════════╣\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m1.\033[96m Modo Individual                  ║\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m2.\033[96m Modo Multijugador                ║\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m3.\033[96m Volver al menú principal         ║\033[0m\n";  
+        std::cout << "\033[92m╚════════════════════\033[31m══════════════════╝\033[0m\n";  
+        gotoxy(0, 7);  
+        std::cout << "\033[0m└─────────────────────────┐\033[0m\n";
+        std::cout << " Seleccione una opción: ";  
           
         int opcion;  
         std::cin >> opcion;  

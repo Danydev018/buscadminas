@@ -42,16 +42,16 @@ void runSinglePlayer() {
             std::cin.clear();  
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
         }  
-        std::cout << "Seleccione dificultad (1=Fácil 20%, 2=Medio 50%, 3=Difícil 70%): ";  
+        std::cout << "Seleccione dificultad | 1. Fácil | 2. Medio | 3. Difícil |: ";  
         while (!(std::cin >> dificultad) || dificultad < 1 || dificultad > 3) {  
-            std::cout << "Valor inválido. Seleccione dificultad (1=Fácil 20%, 2=Medio 50%, 3=Difícil 70%): ";  
+            std::cout << "Valor inválido. Seleccione dificultad | 1. Fácil | 2. Medio | 3. Difícil |: ";  
             std::cin.clear();  
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
         }  
     } else {  
-        std::cout << "Seleccione dificultad (1=Fácil 20%, 2=Medio 50%, 3=Difícil 70%): ";  
+        std::cout << "Seleccione dificultad | 1. Fácil | 2. Medio | 3. Difícil |: ";  
         while (!(std::cin >> dificultad) || dificultad < 1 || dificultad > 3) {  
-            std::cout << "Valor inválido. Seleccione dificultad (1=Fácil 20%, 2=Medio 50%, 3=Difícil 70%): ";  
+            std::cout << "Valor inválido. Seleccione dificultad | 1. Fácil | 2. Medio | 3. Difícil |: ";  
             std::cin.clear();  
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
         }  
@@ -162,29 +162,39 @@ void runSinglePlayer() {
 int main() {  
     while (true) {  
         clearScreen();  
-        std::cout << "\n"
-                     "   ____                _           _             \n"
-                     "  |  _ \\ ___  ___  ___| | ___  ___| |_ ___  _ __ \n"
-                     "  | |_) / _ \\/ __|/ _ \\ |/ _ \\/ __| __/ _ \\| '__|\n"
-                     "  |  _ <  __/\\__ \\  __/ |  __/ (__| || (_) | |   \n"
-                     "  |_| \\_\\___||___/\\___|_|\\___|\\___|\\__\\___/|_|   \n"
-                     "                                                 \n";
-        std::cout << "\033[96m╔══════════════════════════════════════╗\033[0m\n";  
-        std::cout << "\033[96m║           PUNTUACIONES ALTAS         ║\033[0m\n";  
-        std::cout << "\033[96m╠══════════════════════════════════════╣\033[0m\n";  
-        std::cout << "\033[96m║  1. Modo Individual                  ║\033[0m\n";  
-        std::cout << "\033[96m║  2. Modo Multijugador                ║\033[0m\n";  
-        std::cout << "\033[96m║  3. Puntuaciones altas               ║\033[0m\n";  
-        std::cout << "\033[96m║  4. Salir                            ║\033[0m\n";  
-        std::cout << "\033[96m╚══════════════════════════════════════╝\033[0m\n";  
-        std::cout << "Seleccione una opción: ";  
-        int opcion;  
-        std::cin >> opcion;  
+        
+        std::cout << "\033[96m╔══╗════════════════════════════════╔══╗\033[0m\n";  
+        std::cout << "\033[0m║══╝  \033[92m╔═╗\033[0m                      \033[31m╔═╗\033[0m  ╚══║\033[0m\n";
+        std::cout << "\033[0m║     \033[92m╔═╝\033[0m  B U S C A M 🚩N A S \033[31m╚═╗\033[0m     ║\033[0m\n";
+        std::cout << "\033[0m╠══╗ \033[92m╔╠╝\033[0m                        \033[31m╚╣╗\033[0m ╔══╣\033[0m\n";
+        std::cout << "\033[96m╠══╝════════════════════════════════╚══╣\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m1.\033[96m Modo Individual                  ║\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m2.\033[96m Modo Multijugador                ║\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m3.\033[96m Puntuaciones altas               ║\033[0m\n";  
+        std::cout << "\033[96m║  \033[0m4.\033[96m Salir                            ║\033[0m\n";  
+        std::cout << "\033[96m╚══\033[0m══════════════════════════════════\033[96m══╝\033[0m\n";  
+        gotoxy(0, 10);  
+        std::cout << "\033[94m└─────────────────────────┐\033[0m\n"; 
+        std::cout << " Seleccione una opción: ";
+          
+         int opcion;  
+        std::cin >> opcion;
         if (opcion == 1) {  
             runSinglePlayer();  
         } else if (opcion == 2) {  
             clearScreen();  
-            std::cout << "\nMultijugador:\n1. Host (Servidor)\n2. Join (Cliente)\n3. Volver\nOpción: ";  
+            std::cout << "\033[96m╔══╗════════════════════════════════╔══╗\033[0m\n";  
+            std::cout << "\033[0m║══╝                                ╚══║\033[0m\n";
+            std::cout << "\033[0m║   ╔═╗ M U L T I J U G A D 💣 R ╔═╗   ║\033[0m\n";
+            std::cout << "\033[0m╠══╗\033[92m╚═══════════════\033[31m═══════════════╝\033[0m╔══╣\033[0m\n";
+            std::cout << "\033[96m╠══╝════════════════════════════════╚══╣\033[0m\n";  
+            std::cout << "\033[96m║  \033[0m1.\033[96m Host (servidor)                  ║\033[0m\n";  
+            std::cout << "\033[96m║  \033[0m2.\033[96m Join (cliente)                   ║\033[0m\n";  
+            std::cout << "\033[96m║  \033[0m3.\033[96m Volver                           ║\033[0m\n";   
+            std::cout << "\033[96m╚══\033[0m══════════════════════════════════\033[96m══╝\033[0m\n";  
+            gotoxy(0, 9);  
+            std::cout << "\033[94m└─────────────────────────┐\033[0m\n";
+            std::cout << " Seleccione una opción: ";  
             int subopcion;  
             std::cin >> subopcion;  
             if (subopcion == 1) {  
