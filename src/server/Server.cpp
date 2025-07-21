@@ -201,12 +201,12 @@ void Server::gameLoop() {
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
-                    gotoxy(2, board.rows() + 17);  // Era board.rows() + 6  
-                    std::cout << "\033[92m┌─ CONTROLES ─────────────────────────────────────┐\033[0m\n";  
-                    gotoxy(2, board.rows() + 18);  // Era board.rows() + 7  
-                    std::cout << "\033[92m│ \033[97m⬆️⬇️⬅️➡️ Mover cursor  \033[93mR\033[97m Revelar  \033[93mF\033[97m Bandera \033[93mQ\033[97m Salir \033[92m│\033[0m\n";  
-                    gotoxy(2, board.rows() + 19);  // Era board.rows() + 8  
-                    std::cout << "\033[92m└─────────────────────────────────────────────────┘\033[0m";  
+                    gotoxy(2, board.rows() + 9);  // Era board.rows() + 6  
+                    std::cout << "\033[92m┌─ CONTROLES ──────────────────────────────┐\033[0m\n";  
+                    gotoxy(2, board.rows() + 10);  // Era board.rows() + 7  
+                    std::cout << "\033[92m│ \033[97m⬆️⬇️⬅️➡️ Mover  \033[93mR\033[97m Revelar  \033[93mF\033[97m Bandera \033[93mQ\033[97m Salir \033[92m│\033[0m\n";  
+                    gotoxy(2, board.rows() + 11);  // Era board.rows() + 8  
+                    std::cout << "\033[92m└──────────────────────────────────────────┘\033[0m";  
                 }  
   
                 if (key == KEY_FLAG) {  

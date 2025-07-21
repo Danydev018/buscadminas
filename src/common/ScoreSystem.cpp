@@ -326,34 +326,34 @@ void ScoreCalculator::displayLiveStats(int playerClicks, int playerFlags, double
                                      const std::string& playerName, const std::string& opponentName,  
                                      int boardRows) {  
     // Mostrar estadísticas en tiempo real  
-    gotoxy(2, boardRows + 10);  
-    std::cout << "\033[94m┌─ ESTADÍSTICAS EN VIVO ──────────────────────────┐\033[0m\n";  
+    gotoxy(2, boardRows + 3);  
+    std::cout << "\033[94m┌─ ESTADÍSTICAS EN VIVO ────────────────────┐\033[0m\n";  
       
-    gotoxy(2, boardRows + 11);  
-    std::cout << "\033[94m│\033[0m \033[97m" << std::setw(8) << std::left << playerName << "\033[0m";  
-    std::cout << " vs \033[97m" << std::setw(8) << std::left << opponentName << "\033[0m";  
-    std::cout << "                    \033[94m│\033[0m\n";  
+    gotoxy(2, boardRows + 4);  
+    std::cout << "\033[94m│\033[0m \033[97m            " << std::setw(8) << std::left << playerName << "\033[0m";  
+    std::cout << " vs      \033[97m" << std::setw(8) << std::left << opponentName << "\033[0m";  
+    std::cout << "     \033[94m│\033[0m\n";  
       
-    gotoxy(2, boardRows + 12);  
-    std::cout << "\033[94m│\033[0m Clics: \033[93m" << std::setw(3) << playerClicks << "\033[0m";  
-    std::cout << "     Clics: \033[93m" << std::setw(3) << opponentClicks << "\033[0m";  
-    std::cout << "                \033[94m│\033[0m\n";  
+    gotoxy(2, boardRows + 5);  
+    std::cout << "\033[94m│\033[0m Clics: \033[93m      " << std::setw(3) << playerClicks << "\033[0m";  
+    std::cout << "               \033[93m" << std::setw(3) << opponentClicks << "\033[0m";  
+    std::cout << "        \033[94m│\033[0m\n";  
       
-    gotoxy(2, boardRows + 13);  
-    std::cout << "\033[94m│\033[0m Banderas: \033[92m" << std::setw(2) << playerFlags << "\033[0m";  
-    std::cout << "  Banderas: \033[92m" << std::setw(2) << opponentFlags << "\033[0m";  
-    std::cout << "             \033[94m│\033[0m\n";  
+    gotoxy(2, boardRows + 6);  
+    std::cout << "\033[94m│\033[0m Banderas:    \033[92m" << std::setw(2) << playerFlags << "\033[0m";  
+    std::cout << "                \033[92m" << std::setw(2) << opponentFlags << "\033[0m";  
+    std::cout << "         \033[94m│\033[0m\n";  
       
-    gotoxy(2, boardRows + 14);  
-    std::cout << "\033[94m│\033[0m Tiempo: \033[96m" << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
-    std::cout << "                           \033[94m│\033[0m\n";  
+    gotoxy(2, boardRows + 7);  
+    std::cout << "\033[94m│\033[0m Tiempo: \033[96m           " << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
+    std::cout << "                   \033[94m│\033[0m\n";  
       
-    gotoxy(2, boardRows + 15);  
-    std::cout << "\033[94m└─────────────────────────────────────────────────┘\033[0m\n";  
+    gotoxy(2, boardRows + 8);  
+    std::cout << "\033[94m└───────────────────────────────────────────┘\033[0m\n";  
 }
 
 void ScoreCalculator::updateTimeOnly(double gameTime, int boardRows) {  
-    gotoxy(2, boardRows + 14);  
+    gotoxy(2, boardRows + 9);  
     std::cout << "\033[94m│\033[0m Tiempo: \033[96m" << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
     std::cout << "                           \033[94m│\033[0m";  
     std::cout.flush();  
