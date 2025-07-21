@@ -249,6 +249,30 @@ src/common/NetworkUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s
 .PHONY : src/common/NetworkUtils.cpp.s
 
+src/common/ScoreSystem.o: src/common/ScoreSystem.cpp.o
+.PHONY : src/common/ScoreSystem.o
+
+# target to build an object file
+src/common/ScoreSystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o
+.PHONY : src/common/ScoreSystem.cpp.o
+
+src/common/ScoreSystem.i: src/common/ScoreSystem.cpp.i
+.PHONY : src/common/ScoreSystem.i
+
+# target to preprocess a source file
+src/common/ScoreSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.i
+.PHONY : src/common/ScoreSystem.cpp.i
+
+src/common/ScoreSystem.s: src/common/ScoreSystem.cpp.s
+.PHONY : src/common/ScoreSystem.s
+
+# target to generate assembly for a file
+src/common/ScoreSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.s
+.PHONY : src/common/ScoreSystem.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -345,6 +369,9 @@ help:
 	@echo "... src/common/NetworkUtils.o"
 	@echo "... src/common/NetworkUtils.i"
 	@echo "... src/common/NetworkUtils.s"
+	@echo "... src/common/ScoreSystem.o"
+	@echo "... src/common/ScoreSystem.i"
+	@echo "... src/common/ScoreSystem.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

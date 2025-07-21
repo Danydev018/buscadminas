@@ -1,0 +1,3 @@
+PlayerName,TotalScore,Difficulty,GameTime,BoardSize,TotalMines,TotalClicks,BasePoints,TimeBonus,EfficiencyBonus,SizeMultiplier
+tairon,175,Fácil,166.24,5x5,5,10,100,0,75,1
+bryan,139,Fácil,522.44,5x5,5,14,100,0,39,1

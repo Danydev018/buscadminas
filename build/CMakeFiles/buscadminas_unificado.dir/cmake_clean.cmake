@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o.d"
   "CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o"
   "CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o.d"
+  "CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o"
+  "CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o.d"
   "CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o"
   "CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o.d"
   "CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o"

@@ -16,5 +16,6 @@ add_executable(buscadminas_unificado
     src/server/main_server.cpp
     src/common/ConsoleUtils.cpp
     src/common/NetworkUtils.cpp
+    src/common/ScoreSystem.cpp
 )
 target_link_libraries(buscadminas_unificado PRIVATE Threads::Threads)

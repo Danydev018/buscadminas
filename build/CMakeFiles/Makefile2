@@ -81,12 +81,12 @@ clean: CMakeFiles/buscadminas_unificado.dir/clean
 CMakeFiles/buscadminas_unificado.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/buscadminas_unificado.dir/build.make CMakeFiles/buscadminas_unificado.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target buscadminas_unificado"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target buscadminas_unificado"
 .PHONY : CMakeFiles/buscadminas_unificado.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/buscadminas_unificado.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/buscadminas_unificado.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles 0
 .PHONY : CMakeFiles/buscadminas_unificado.dir/rule
