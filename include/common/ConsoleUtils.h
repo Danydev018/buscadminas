@@ -41,5 +41,7 @@ void showAllMines(const Board& board, const std::string& gameResult);
 
 void drawStatusBar(const std::string& msg, int rowY);
 
+KeyCode getKeyWithTimeout(int timeoutMs = 1000);
+
 
 #endif // CONSOLE_UTILS_H

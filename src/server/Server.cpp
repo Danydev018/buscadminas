@@ -149,16 +149,33 @@ void Server::gameLoop() {
     int hostClicks = 0, clientClicks = 0;  
     int hostFlags = 0, clientFlags = 0;  
     int difficulty = 2; // Medio por defecto, se puede obtener de main_server.cpp 
+
+    auto lastTimeUpdate = std::chrono::steady_clock::now();  
+    bool statsDisplayed = false;
+
     while (true) {  
+        // Actualizar tiempo al inicio del bucle  
+        auto currentTime = std::chrono::steady_clock::now();  
+        double elapsedTime = std::chrono::duration<double>(currentTime - startTime).count();  
+        
+        // Actualizar tiempo cada segundo  
+        if (std::chrono::duration<double>(currentTime - lastTimeUpdate).count() >= 1.0) {  
+            if (statsDisplayed) {  
+                ScoreCalculator::updateTimeOnly(elapsedTime, board.rows());  
+            }  
+            lastTimeUpdate = currentTime;  
+        } 
         Move mv{};  
           
         if (turnHost) {  
             // Turno del servidor (host)  
             int cursorRow = 0, cursorCol = 0;  
             int lastRow = -1, lastCol = -1;  
+            
   
             while (true) {  
-                KeyCode key = getKey();  
+                 KeyCode key = getKey(); 
+                
   
                 if (key == KEY_UP && cursorRow > 0) cursorRow--;  
                 else if (key == KEY_DOWN && cursorRow < board.rows() - 1) cursorRow++;  
@@ -173,16 +190,22 @@ void Server::gameLoop() {
                     gotoxy(1, 1);  
                     drawFrameAroundBoard(4, 2, board.cols(), board.rows());  
                     board.drawGotoxy(4, 2);  
+                    // Mostrar estadísticas en vivo  
+                    // REEMPLAZAR cualquier llamada existente a displayLiveStats con:  
+                    ScoreCalculator::displayLiveStats(hostClicks, hostFlags, elapsedTime,  
+                                                    clientClicks, clientFlags,   
+                                                    "HOST", "CLIENT", board.rows());  
+                    statsDisplayed = true;
                     if (board.rows() >= 14) gotoxy(4 + cursorCol * 3, 1 + cursorRow);    
                     else gotoxy(4 + cursorCol * 3, 2 + cursorRow); 
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
-                    gotoxy(2, board.rows() + 6);    
+                    gotoxy(2, board.rows() + 17);  // Era board.rows() + 6  
                     std::cout << "\033[92m┌─ CONTROLES ─────────────────────────────────────┐\033[0m\n";  
-                    gotoxy(2, board.rows() + 7);  
+                    gotoxy(2, board.rows() + 18);  // Era board.rows() + 7  
                     std::cout << "\033[92m│ \033[97m⬆️⬇️⬅️➡️ Mover cursor  \033[93mR\033[97m Revelar  \033[93mF\033[97m Bandera \033[93mQ\033[97m Salir \033[92m│\033[0m\n";  
-                    gotoxy(2, board.rows() + 8);  
+                    gotoxy(2, board.rows() + 19);  // Era board.rows() + 8  
                     std::cout << "\033[92m└─────────────────────────────────────────────────┘\033[0m";  
                 }  
   
@@ -285,6 +308,19 @@ void Server::gameLoop() {
             GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
                                                                 gameTime, clientClicks, clientFlags, clientWon);  
             
+            MultiplayerScore mscore;  
+            mscore.hostScore = hostScore.totalScore;  
+            mscore.clientScore = clientScore.totalScore;  
+            mscore.hostWon = hostWon;  
+            mscore.clientWon = clientWon;  
+            mscore.gameTime = gameTime;  
+            mscore.hostClicks = hostClicks;  
+            mscore.clientClicks = clientClicks;  
+            mscore.hostFlags = hostFlags;  
+            mscore.clientFlags = clientFlags;  
+            
+            // Enviar la estructura al cliente  
+            send(clientSock, &mscore, sizeof(mscore), 0);
             // Mostrar resultados  
             ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
             

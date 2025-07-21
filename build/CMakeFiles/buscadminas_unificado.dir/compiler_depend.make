@@ -253,18 +253,22 @@ CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o: /home/danydev/Docu
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
-  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
-  /usr/include/c++/12/chrono \
-  /usr/include/c++/12/bits/chrono.h \
-  /usr/include/c++/12/ratio \
-  /usr/include/c++/12/ctime \
-  /usr/include/c++/12/bits/parse_numbers.h \
+  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/server/Server.h \
   /usr/include/c++/12/thread \
   /usr/include/c++/12/bits/std_thread.h \
   /usr/include/c++/12/tuple \
   /usr/include/c++/12/bits/uses_allocator.h \
   /usr/include/c++/12/bits/unique_ptr.h \
   /usr/include/c++/12/bits/this_thread_sleep.h \
+  /usr/include/c++/12/bits/chrono.h \
+  /usr/include/c++/12/ratio \
+  /usr/include/c++/12/ctime \
+  /usr/include/c++/12/bits/parse_numbers.h \
+  /usr/include/c++/12/atomic \
+  /usr/include/c++/12/bits/atomic_base.h \
+  /usr/include/c++/12/bits/atomic_lockfree_defines.h \
+  /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h \
+  /usr/include/c++/12/chrono \
   /usr/include/c++/12/stdlib.h \
   /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ScoreSystem.h \
   /usr/include/c++/12/fstream \
@@ -2323,10 +2327,6 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp:
 
-/usr/include/c++/12/atomic:
-
-/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/server/Server.h:
-
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp:
 
 /usr/include/c++/12/bits/stl_tempbuf.h:
@@ -2389,13 +2389,17 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/c++/12/stdlib.h:
 
+/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h:
+
+/usr/include/c++/12/atomic:
+
+/usr/include/c++/12/bits/parse_numbers.h:
+
+/usr/include/c++/12/ctime:
+
 /usr/include/c++/12/bits/this_thread_sleep.h:
 
 /usr/include/c++/12/bits/unique_ptr.h:
-
-/usr/include/c++/12/bits/uses_allocator.h:
-
-/usr/include/c++/12/bits/parse_numbers.h:
 
 /usr/include/c++/12/tr1/ell_integral.tcc:
 
@@ -2443,6 +2447,10 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
+/usr/include/c++/12/chrono:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
@@ -2474,6 +2482,12 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h:
+
+/usr/include/c++/12/bits/chrono.h:
+
+/usr/include/c++/12/clocale:
+
+/usr/include/c++/12/bits/uses_allocator.h:
 
 /usr/include/stdlib.h:
 
@@ -2569,9 +2583,9 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/c++/12/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/12/bits/atomic_base.h:
-
 /usr/include/arpa/inet.h:
+
+/usr/include/c++/12/bits/atomic_base.h:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h:
 
@@ -2631,10 +2645,6 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/c++/12/bits/exception.h:
 
-/usr/include/c++/12/bits/std_thread.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
 /usr/include/c++/12/bits/locale_classes.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
@@ -2646,6 +2656,10 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /usr/include/c++/12/iomanip:
 
 /usr/include/c++/12/debug/debug.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/c++/12/bits/std_thread.h:
 
 /usr/include/wchar.h:
 
@@ -2727,10 +2741,6 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/usr/include/c++/12/tuple:
-
-/usr/include/c++/12/bits/functional_hash.h:
-
 /usr/include/stdio.h:
 
 /usr/include/c++/12/tr1/exp_integral.tcc:
@@ -2768,6 +2778,8 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/server/Server.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
@@ -2915,6 +2927,10 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 
 /usr/include/c++/12/bits/ostream.tcc:
 
+/usr/include/c++/12/bits/functional_hash.h:
+
+/usr/include/c++/12/tuple:
+
 /usr/include/c++/12/tr1/hypergeometric.tcc:
 
 /usr/include/c++/12/cwctype:
@@ -2922,8 +2938,6 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /usr/include/c++/12/tr1/riemann_zeta.tcc:
 
 /usr/include/c++/12/bits/basic_ios.tcc:
-
-/usr/include/c++/12/ctime:
 
 /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h:
 
@@ -2962,13 +2976,3 @@ CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/include/linux/close_range.h:
-
-/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include/common/ConsoleUtils.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/include/c++/12/chrono:
-
-/usr/include/c++/12/clocale:
-
-/usr/include/c++/12/bits/chrono.h:

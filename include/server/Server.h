@@ -32,5 +32,14 @@ private:
     bool validateMove(const Move& mv) const; 
      
 };  
+
+struct MultiplayerScore {  
+    int hostScore;  
+    int clientScore;  
+    int hostWon;  
+    int clientWon;  
+    double gameTime;  
+    int hostClicks, clientClicks, hostFlags, clientFlags;  
+}; 
   
 #endif

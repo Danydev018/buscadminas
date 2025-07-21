@@ -1,4 +1,5 @@
 #include "client/Client.h"
+#include "server/Server.h"
 #include "common/ConsoleUtils.h"
 #include "common/NetworkUtils.h"
 #include "common/NetworkCommon.h"
@@ -128,18 +129,29 @@ void Client::play() {
     int clientClicks = 0, hostClicks = 0;  
     int clientFlags = 0, hostFlags = 0;  
     int difficulty = 2; // Se puede sincronizar con el servidor
-    
+    auto lastTimeUpdate = std::chrono::steady_clock::now();  
+    bool statsDisplayed = false;
 
     while (true) {  
+        auto currentTime = std::chrono::steady_clock::now();  
+        double elapsedTime = std::chrono::duration<double>(currentTime - startTime).count();  
+        
+        // Actualizar tiempo cada segundo  
+        if (std::chrono::duration<double>(currentTime - lastTimeUpdate).count() >= 1.0) {  
+            if (statsDisplayed) {  
+                ScoreCalculator::updateTimeOnly(elapsedTime, board->rows());  
+            }  
+            lastTimeUpdate = currentTime;  
+        } 
         Move mv{};  
           
         if (!turnHost) {  
             // Turno del cliente - capturar input del usuario  
             int cursorRow = 0, cursorCol = 0;  
             int lastRow = -1, lastCol = -1;  
-  
+
             while (true) {  
-                KeyCode key = getKey();  
+                KeyCode key = getKey();    
   
                 if (key == KEY_UP && cursorRow > 0) cursorRow--;  
                 else if (key == KEY_DOWN && cursorRow < board->rows() - 1) cursorRow++;  
@@ -154,17 +166,22 @@ void Client::play() {
                     gotoxy(1, 1);  
                     drawFrameAroundBoard(4, 2, board->cols(), board->rows());  
                     board->drawGotoxy(4, 2);  
+                    // Mostrar estadísticas en vivo  
+                    ScoreCalculator::displayLiveStats(clientClicks, clientFlags, elapsedTime,  
+                                                    hostClicks, hostFlags,  
+                                                    "CLIENT", "HOST", board->rows());  
+                    statsDisplayed = true;
                     if (board->rows() >= 14) gotoxy(4 + cursorCol * 3, 1 + cursorRow);    
                     else gotoxy(4 + cursorCol * 3, 2 + cursorRow); 
                     std::cout << "\033[35m◉\033[0m";
                     // highlightCell(cursorRow, cursorCol, "[◉]");  
   
-                    gotoxy(2, board->rows() + 6);    
+                    gotoxy(2, board->rows() + 17);  // Era board->rows() + 6  
                     std::cout << "\033[92m┌─ CONTROLES ─────────────────────────────────────┐\033[0m\n";  
-                    gotoxy(2, board->rows() + 7);  
+                    gotoxy(2, board->rows() + 18);  // Era board->rows() + 7  
                     std::cout << "\033[92m│ \033[97m⬆️⬇️⬅️➡️ Mover cursor  \033[93mR\033[97m Revelar  \033[93mF\033[97m Bandera \033[93mQ\033[97m Salir \033[92m│\033[0m\n";  
-                    gotoxy(2, board->rows() + 8);  
-                    std::cout << "\033[92m└─────────────────────────────────────────────────┘\033[0m\n"; 
+                    gotoxy(2, board->rows() + 19);  // Era board->rows() + 8  
+                    std::cout << "\033[92m└─────────────────────────────────────────────────┘\033[0m\n";
                     
                 }  
   
@@ -256,22 +273,26 @@ void Client::play() {
             std::string result = !turnHost ? "Has perdido💣" : "Has ganado🏁";  
             showAllMines(*board, result);  
             
-            // Calcular puntuaciones para ambos jugadores  
-            auto endTime = std::chrono::steady_clock::now();  
-            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
-            
-            // Puntuación del cliente  
-            bool clientWon = turnHost;  
-            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
-                                                                gameTime, clientClicks, clientFlags, clientWon);  
-            
-            // Puntuación del host  
-            bool hostWon = !turnHost;  
-            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,  
-                                                                gameTime, hostClicks, hostFlags, hostWon);  
-            
-            // Mostrar resultados  
-            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
+             // Recibir la estructura de score del servidor  
+            MultiplayerScore mscore;  
+            recv(sockfd, &mscore, sizeof(mscore), MSG_WAITALL);  
+  
+            // Construir los GameScore a partir de los datos recibidos  
+            // NO CALCULAR LOCALMENTE, SOLO ASIGNAR LOS VALORES RECIBIDOS  
+            GameScore hostScore;  
+            hostScore.totalScore = mscore.hostScore;  
+            // Puedes rellenar los demás campos si los envías en MultiplayerScore  
+            // hostScore.won = mscore.hostWon;   
+            // hostScore.gameTimeSeconds = mscore.gameTime;  
+  
+            GameScore clientScore;  
+            clientScore.totalScore = mscore.clientScore;  
+            // Puedes rellenar los demás campos si los envías en MultiplayerScore  
+            // clientScore.won = mscore.clientWon;  
+            // clientScore.gameTimeSeconds = mscore.gameTime;  
+              
+            // Mostrar el resultado usando los datos recibidos del servidor  
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT"); 
             
             break;  
         }  

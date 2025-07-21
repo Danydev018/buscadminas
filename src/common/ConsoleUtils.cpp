@@ -114,3 +114,22 @@ void showAllMines(const Board& board, const std::string& gameResult) {
     std::cout << "Presiona cualquier tecla para continuar...";  
     getKey();  
 }
+
+KeyCode getKeyWithTimeout(int timeoutMs) {  
+    fd_set readfds;  
+    struct timeval timeout;  
+      
+    FD_ZERO(&readfds);  
+    FD_SET(STDIN_FILENO, &readfds);  
+      
+    timeout.tv_sec = timeoutMs / 1000;  
+    timeout.tv_usec = (timeoutMs % 1000) * 1000;  
+      
+    int result = select(STDIN_FILENO + 1, &readfds, NULL, NULL, &timeout);  
+      
+    if (result > 0 && FD_ISSET(STDIN_FILENO, &readfds)) {  
+        return getKey(); // Llamar a la función original si hay input  
+    }  
+      
+    return KEY_NONE; // Timeout - no hay input  
+}

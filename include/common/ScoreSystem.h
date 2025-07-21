@@ -35,6 +35,11 @@ public:
                                               const GameScore& player2Score,  
                                               const std::string& player1Name,  
                                               const std::string& player2Name);
+    static void displayLiveStats(int playerClicks, int playerFlags, double gameTime,   
+                           int opponentClicks, int opponentFlags,  
+                           const std::string& playerName, const std::string& opponentName,  
+                           int boardRows);
+    static void updateTimeOnly(double gameTime, int boardRows);
   
 private:  
     static const std::string CSV_FILE;  
