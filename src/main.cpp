@@ -162,8 +162,22 @@ void runSinglePlayer() {
 int main() {  
     while (true) {  
         clearScreen();  
-        std::cout << "Buscaminas - Unificado" << std::endl;  
-        std::cout << "Seleccione el modo:\n1. Jugador individual\n2. Multijugador\n3. Ver puntuaciones altas\n4. Salir\nOpción: ";  
+        std::cout << "\n"
+                     "   ____                _           _             \n"
+                     "  |  _ \\ ___  ___  ___| | ___  ___| |_ ___  _ __ \n"
+                     "  | |_) / _ \\/ __|/ _ \\ |/ _ \\/ __| __/ _ \\| '__|\n"
+                     "  |  _ <  __/\\__ \\  __/ |  __/ (__| || (_) | |   \n"
+                     "  |_| \\_\\___||___/\\___|_|\\___|\\___|\\__\\___/|_|   \n"
+                     "                                                 \n";
+        std::cout << "\033[96m╔══════════════════════════════════════╗\033[0m\n";  
+        std::cout << "\033[96m║           PUNTUACIONES ALTAS         ║\033[0m\n";  
+        std::cout << "\033[96m╠══════════════════════════════════════╣\033[0m\n";  
+        std::cout << "\033[96m║  1. Modo Individual                  ║\033[0m\n";  
+        std::cout << "\033[96m║  2. Modo Multijugador                ║\033[0m\n";  
+        std::cout << "\033[96m║  3. Puntuaciones altas               ║\033[0m\n";  
+        std::cout << "\033[96m║  4. Salir                            ║\033[0m\n";  
+        std::cout << "\033[96m╚══════════════════════════════════════╝\033[0m\n";  
+        std::cout << "Seleccione una opción: ";  
         int opcion;  
         std::cin >> opcion;  
         if (opcion == 1) {  

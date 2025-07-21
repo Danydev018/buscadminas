@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp"
+},
+{
+  "directory": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build",
+  "command": "/usr/bin/g++  -I/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/include -g -std=gnu++17 -o CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp",
+  "file": "/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp"
+}
+]
