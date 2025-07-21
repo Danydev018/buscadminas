@@ -286,7 +286,13 @@ void Client::play() {
             hostScore.totalMines = M;
             hostScore.totalClicks = hostClicks;
             hostScore.flagsUsed = hostFlags;
-            hostScore.difficulty = std::to_string(difficulty);
+            // Mapear dificultad numérica a string
+            switch (difficulty) {
+                case 1: hostScore.difficulty = "facil"; break;
+                case 2: hostScore.difficulty = "medio"; break;
+                case 3: hostScore.difficulty = "dificil"; break;
+                default: hostScore.difficulty = "desconocido"; break;
+            }
 
             GameScore clientScore;
             clientScore.totalScore = mscore.clientScore;
@@ -297,7 +303,12 @@ void Client::play() {
             clientScore.totalMines = M;
             clientScore.totalClicks = clientClicks;
             clientScore.flagsUsed = clientFlags;
-            clientScore.difficulty = std::to_string(difficulty);
+            switch (difficulty) {
+                case 1: clientScore.difficulty = "facil"; break;
+                case 2: clientScore.difficulty = "medio"; break;
+                case 3: clientScore.difficulty = "dificil"; break;
+                default: clientScore.difficulty = "desconocido"; break;
+            }
 
             ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");
 

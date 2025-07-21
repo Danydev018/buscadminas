@@ -1,2 +1,4 @@
 PlayerName,TotalScore,Difficulty,GameTime,BoardSize,TotalMines,TotalClicks,BasePoints,TimeBonus,EfficiencyBonus,SizeMultiplier\njajaja,75,2,11.23,5x5,5,1,6,0,6,0
 tairon,1194,2,24.11,5x5,5,2,-1299184633,0,604636556,32721
+HOST,1211,Medio,19.06,5x5,12,2,300,336,575,1
+ka,1298,medio,15.20,10x10,20,0,-361588519,32584,8,0
