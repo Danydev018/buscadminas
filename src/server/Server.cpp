@@ -324,6 +324,19 @@ void Server::gameLoop() {
             // Mostrar resultados  
             ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
             
+            // Agregar estas líneas:  
+            if (hostWon) {  
+                gotoxy(2, board.rows() + 15);  
+                std::cout << "¡HOST ha ganado! Ingrese su nombre (Enter para 'HOST'): ";  
+                std::string winnerName;  
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+                std::getline(std::cin, winnerName);  
+                if (winnerName.empty()) winnerName = "HOST";  
+                ScoreCalculator::saveMultiplayerScoreToCSV(hostScore, winnerName);  
+            } else if (clientWon) {  
+                gotoxy(2, board.rows() + 15);  
+                std::cout << "¡CLIENT ha ganado! El ganador podrá ingresar su nombre desde su cliente.";  
+            }
             break;  
         }  
         

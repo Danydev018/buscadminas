@@ -7,7 +7,7 @@
 #include <limits>  
   
 const std::string ScoreCalculator::CSV_FILE = "buscaminas_scores.csv";
-  
+const std::string ScoreCalculator::MULTIPLAYER_CSV_FILE = "buscaminas_multiplayer_scores.csv";
 void ScoreCalculator::createCSVHeader() {  
     std::ifstream checkFile(CSV_FILE);  
     if (!checkFile.good()) {  
@@ -368,4 +368,171 @@ void ScoreCalculator::updateTimeOnly(double gameTime, int boardRows) {
 
     gotoxy(2, boardRows + 8);  
     std::cout << "\033[94m└──────────────────────────────────────────┘\033[0m\n";
+}
+
+void ScoreCalculator::saveMultiplayerScoreToCSV(const GameScore& score, const std::string& playerName) {  
+    std::cout << "DEBUG: Intentando guardar puntuación multijugador para: " << playerName << std::endl;  
+      
+    if (!score.won) {  
+        std::cout << "DEBUG: No se guarda porque no ganó" << std::endl;  
+        return;  
+    }  
+      
+    std::cout << "DEBUG: Creando archivo: " << MULTIPLAYER_CSV_FILE << std::endl;  
+      
+    
+    if (!score.won) return; // Solo guardar puntuaciones ganadoras  
+      
+    // Crear header para archivo multijugador si no existe  
+    std::ifstream checkFile(MULTIPLAYER_CSV_FILE);  
+    if (!checkFile.good()) {  
+        std::ofstream file(MULTIPLAYER_CSV_FILE);  
+        if (file.is_open()) {  
+            file << "PlayerName,TotalScore,Difficulty,GameTime,BoardSize,TotalMines,TotalClicks,BasePoints,TimeBonus,EfficiencyBonus,SizeMultiplier\\n";  
+            file.close();  
+        }  
+    }  
+    checkFile.close();  
+      
+    std::ofstream file(MULTIPLAYER_CSV_FILE, std::ios::app);  
+    if (file.is_open()) {  
+        file << escapeCSV(playerName) << ","  
+             << score.totalScore << ","  
+             << escapeCSV(score.difficulty) << ","  
+             << std::fixed << std::setprecision(2) << score.gameTimeSeconds << ","  
+             << score.boardRows << "x" << score.boardCols << ","  
+             << score.totalMines << ","  
+             << score.totalClicks << ","  
+             << score.basePoints << ","  
+             << score.timeBonus << ","  
+             << score.efficiencyBonus << ","  
+             << score.sizeMultiplier << "\n";  
+        file.close();  
+    }  
+}  
+  
+std::vector<GameScore> ScoreCalculator::loadMultiplayerScoresFromCSV() {  
+    std::vector<GameScore> scores;  
+    std::ifstream file(MULTIPLAYER_CSV_FILE);  
+    std::string line;  
+      
+    // Saltar header  
+    if (std::getline(file, line)) {  
+        while (std::getline(file, line)) {  
+            std::stringstream ss(line);  
+            std::string token;  
+            GameScore score;  
+              
+            // Parse CSV fields (mismo código que loadScoresFromCSV)  
+            if (std::getline(ss, token, ',')) score.playerName = token;  
+            if (std::getline(ss, token, ',')) score.totalScore = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.difficulty = token;  
+            if (std::getline(ss, token, ',')) score.gameTimeSeconds = std::stod(token);  
+            if (std::getline(ss, token, ',')) {  
+                size_t pos = token.find('x');  
+                if (pos != std::string::npos) {  
+                    score.boardRows = std::stoi(token.substr(0, pos));  
+                    score.boardCols = std::stoi(token.substr(pos + 1));  
+                }  
+            }  
+            if (std::getline(ss, token, ',')) score.totalMines = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.totalClicks = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.basePoints = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.timeBonus = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.efficiencyBonus = std::stoi(token);  
+            if (std::getline(ss, token, ',')) score.sizeMultiplier = std::stoi(token);  
+              
+            score.won = true;  
+            scores.push_back(score);  
+        }  
+    }  
+      
+    // Ordenar por puntuación descendente  
+    std::sort(scores.begin(), scores.end(),  
+              [](const GameScore& a, const GameScore& b) {  
+                  return a.totalScore > b.totalScore;  
+              });  
+      
+    return scores;  
+}  
+  
+void ScoreCalculator::displayMultiplayerHighScores() {  
+    auto scores = loadMultiplayerScoresFromCSV();  
+      
+    clearScreen();  
+    gotoxy(1, 1);  
+    std::cout << "\033[96m╔══════════════════════════════════════════════════════════════════════╗\033[0m\n";  
+    std::cout << "\033[96m║                    MEJORES PUNTUACIONES MULTIJUGADOR                 ║\033[0m\n";  
+    std::cout << "\033[96m╠══════════════════════════════════════════════════════════════════════╣\033[0m\n";  
+    std::cout << "\033[96m║ #  Jugador      Puntos   Dificultad  Tiempo   Tablero   Minas  Clics ║\033[0m\n";  
+    std::cout << "\033[96m╠══════════════════════════════════════════════════════════════════════╣\033[0m\n";  
+      
+    for (size_t i = 0; i < std::min(scores.size(), size_t(10)); ++i) {  
+        const auto& score = scores[i];  
+        std::cout << "\033[96m║\033[0m ";  
+          
+        // # - 2 caracteres  
+        std::cout << std::setw(1) << std::right << (i + 1) << "  ";  
+          
+        // Jugador - 11 caracteres  
+        std::cout << std::setw(11) << std::left << score.playerName.substr(0, 11) << "";  
+          
+        // Puntos - 7 caracteres  
+        std::cout << std::setw(6) << std::right << score.totalScore << "       ";  
+          
+        // Dificultad - 11 caracteres  
+        std::cout << std::setw(11) << std::left << score.difficulty.substr(0, 11) << "";  
+          
+        // Tiempo - 8 caracteres  
+        std::cout << std::setw(3) << std::right << std::fixed << std::setprecision(1) << score.gameTimeSeconds << "s ";  
+          
+        // Tablero - 8 caracteres  
+        std::cout << std::setw(6) << std::right << (std::to_string(score.boardRows) + "x" + std::to_string(score.boardCols)) << " ";  
+          
+        // Minas - 5 caracteres  
+        std::cout << std::setw(8) << std::right << score.totalMines << "";  
+          
+        // Clics - 5 caracteres  
+        std::cout << std::setw(8) << std::right << score.totalClicks << "  ";  
+          
+        std::cout << "\033[96m║\033[0m\n";  
+    }  
+      
+    if (scores.empty()) {  
+        std::cout << "\033[96m║                   No hay puntuaciones multijugador guardadas         ║\033[0m\n";  
+    }  
+      
+    std::cout << "\033[96m╚══════════════════════════════════════════════════════════════════════╝\033[0m\n";  
+    std::cout << "\nPresione Enter para continuar...";  
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+    std::cin.get();  
+}  
+  
+void ScoreCalculator::displayScoreSubmenu() {  
+    while (true) {  
+        clearScreen();  
+        std::cout << "\033[96m╔══════════════════════════════════════╗\033[0m\n";  
+        std::cout << "\033[96m║           PUNTUACIONES ALTAS         ║\033[0m\n";  
+        std::cout << "\033[96m╠══════════════════════════════════════╣\033[0m\n";  
+        std::cout << "\033[96m║  1. Modo Individual                  ║\033[0m\n";  
+        std::cout << "\033[96m║  2. Modo Multijugador                ║\033[0m\n";  
+        std::cout << "\033[96m║  3. Volver al menú principal         ║\033[0m\n";  
+        std::cout << "\033[96m╚══════════════════════════════════════╝\033[0m\n";  
+        std::cout << "Seleccione una opción: ";  
+          
+        int opcion;  
+        std::cin >> opcion;  
+          
+        if (opcion == 1) {  
+            displayHighScores();  
+        } else if (opcion == 2) {  
+            displayMultiplayerHighScores();  
+        } else if (opcion == 3) {  
+            break;  
+        } else {  
+            std::cout << "Opción no válida." << std::endl;  
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
+            std::cin.get();  
+        }  
+    }  
 }

@@ -270,52 +270,104 @@ void Client::play() {
         // SOLO verificar condiciones de fin de juego si fue una revelación  
         if (!mv.isFlag) {  
         if (board->isMine(mv.row, mv.col)) {  
-            std::string result = !turnHost ? "Has perdido💣" : "Has ganado🏁";  
-            showAllMines(*board, result);  
-            
-             // Recibir la estructura de score del servidor  
-            MultiplayerScore mscore;  
-            recv(sockfd, &mscore, sizeof(mscore), MSG_WAITALL);  
-  
-            // Construir los GameScore a partir de los datos recibidos  
-            // NO CALCULAR LOCALMENTE, SOLO ASIGNAR LOS VALORES RECIBIDOS  
-            GameScore hostScore;  
-            hostScore.totalScore = mscore.hostScore;  
-            // Puedes rellenar los demás campos si los envías en MultiplayerScore  
-            // hostScore.won = mscore.hostWon;   
-            // hostScore.gameTimeSeconds = mscore.gameTime;  
-  
-            GameScore clientScore;  
-            clientScore.totalScore = mscore.clientScore;  
-            // Puedes rellenar los demás campos si los envías en MultiplayerScore  
-            // clientScore.won = mscore.clientWon;  
-            // clientScore.gameTimeSeconds = mscore.gameTime;  
-              
-            // Mostrar el resultado usando los datos recibidos del servidor  
-            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT"); 
-            
-            break;  
+            std::string result = !turnHost ? "Has perdido💣" : "Has ganado🏁";
+            showAllMines(*board, result);
+
+            // Recibir la estructura de score del servidor
+            MultiplayerScore mscore;
+            recv(sockfd, &mscore, sizeof(mscore), MSG_WAITALL);
+
+            GameScore hostScore;
+            hostScore.totalScore = mscore.hostScore;
+            hostScore.difficulty = difficulty;
+            hostScore.gameTimeSeconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - startTime).count();
+            hostScore.boardRows = R;
+            hostScore.boardCols = C;
+            hostScore.totalMines = M;
+            hostScore.totalClicks = hostClicks;
+            hostScore.flagsUsed = hostFlags;
+            hostScore.difficulty = std::to_string(difficulty);
+
+            GameScore clientScore;
+            clientScore.totalScore = mscore.clientScore;
+            clientScore.difficulty = difficulty;
+            clientScore.gameTimeSeconds = std::chrono::duration<double>(std::chrono::steady_clock::now() - startTime).count();
+            clientScore.boardRows = R;
+            clientScore.boardCols = C;
+            clientScore.totalMines = M;
+            clientScore.totalClicks = clientClicks;
+            clientScore.flagsUsed = clientFlags;
+            clientScore.difficulty = std::to_string(difficulty);
+
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");
+
+            // Determinar ganador real según los puntajes recibidos
+            std::string winnerName;
+            std::string winnerLabel;
+            GameScore* winnerScore = nullptr;
+            // Si el hostScore es mayor, ganó el host; si el clientScore es mayor, ganó el cliente
+            if (hostScore.totalScore > clientScore.totalScore) {
+                winnerLabel = "HOST";
+                winnerScore = &hostScore;
+            } else {
+                winnerLabel = "CLIENT";
+                winnerScore = &clientScore;
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            gotoxy(2, board ? board->rows() + 15 : 15);
+            std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
+            std::cout.flush();
+            std::getline(std::cin, winnerName);
+            if (winnerName.empty()) winnerName = winnerLabel;
+            winnerScore->won = true;
+            ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
+            gotoxy(2, board ? board->rows() + 17 : 17);
+            std::cout << "Puntaje guardado." << std::endl;
+            break;
         }  
         
         if (board->allSafeRevealed()) {  
-            std::string result = !turnHost ? "Has ganado🏁" : "Has perdido💣";  
-            showAllMines(*board, result);  
-            
-            // Calcular puntuaciones para victoria completa  
-            auto endTime = std::chrono::steady_clock::now();  
-            double gameTime = std::chrono::duration<double>(endTime - startTime).count();  
-            
-            bool clientWon = !turnHost;  
-            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,  
-                                                                gameTime, clientClicks, clientFlags, clientWon);  
-            
-            bool hostWon = turnHost;  
-            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,  
-                                                                gameTime, hostClicks, hostFlags, hostWon);  
-            
-            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");  
-            
-            break;  
+            std::string result = !turnHost ? "Has ganado🏁" : "Has perdido💣";
+            showAllMines(*board, result);
+
+            // Calcular puntuaciones para victoria completa
+            auto endTime = std::chrono::steady_clock::now();
+            double gameTime = std::chrono::duration<double>(endTime - startTime).count();
+
+            bool clientWon = !turnHost;
+            GameScore clientScore = ScoreCalculator::calculateScore(difficulty, R, C,
+                                                                gameTime, clientClicks, clientFlags, clientWon);
+
+            bool hostWon = turnHost;
+            GameScore hostScore = ScoreCalculator::calculateScore(difficulty, R, C,
+                                                                gameTime, hostClicks, hostFlags, hostWon);
+
+            ScoreCalculator::displayMultiplayerResults(hostScore, clientScore, "HOST", "CLIENT");
+
+            // Determinar ganador real según las variables de victoria
+            std::string winnerName;
+            std::string winnerLabel;
+            GameScore* winnerScore = nullptr;
+            if (clientWon) {
+                winnerLabel = "CLIENT";
+                winnerScore = &clientScore;
+            } else {
+                winnerLabel = "HOST";
+                winnerScore = &hostScore;
+            }
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            gotoxy(2, board ? board->rows() + 15 : 15);
+            std::cout << "¡Has ganado! Ingrese su nombre (Enter para '" << winnerLabel << "'): ";
+            std::cout.flush();
+            std::getline(std::cin, winnerName);
+            if (winnerName.empty()) winnerName = winnerLabel;
+            winnerScore->won = true;
+            ScoreCalculator::saveMultiplayerScoreToCSV(*winnerScore, winnerName);
+            gotoxy(2, board ? board->rows() + 17 : 17);
+            std::cout << "Puntaje guardado." << std::endl;
+            break;
         }  
     } 
   

@@ -73,127 +73,127 @@ CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o: CMakeFiles/buscadmi
 CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp
 CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/Board.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/Board.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp
 CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp > CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp > CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp -o CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/Client.cpp -o CMakeFiles/buscadminas_unificado.dir/src/client/Client.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp
 CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp > CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp > CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp -o CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/Server.cpp -o CMakeFiles/buscadminas_unificado.dir/src/server/Server.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp
 CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/main.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp > CMakeFiles/buscadminas_unificado.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp > CMakeFiles/buscadminas_unificado.dir/src/main.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp -o CMakeFiles/buscadminas_unificado.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/main.cpp -o CMakeFiles/buscadminas_unificado.dir/src/main.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp
 CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp > CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp > CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp -o CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/client/main_client.cpp -o CMakeFiles/buscadminas_unificado.dir/src/client/main_client.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp
 CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp > CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp > CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp -o CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/server/main_server.cpp -o CMakeFiles/buscadminas_unificado.dir/src/server/main_server.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp
 CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ConsoleUtils.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/ConsoleUtils.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp
 CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/NetworkUtils.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/NetworkUtils.cpp.s
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o: CMakeFiles/buscadminas_unificado.dir/flags.make
 CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o: /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp
 CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o: CMakeFiles/buscadminas_unificado.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o -MF CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o.d -o CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.o -c /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp > CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.i
 
 CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danydev/Documentos/PROYECTOS_UNIVERSITARIOS/test/buscadminas/src/common/ScoreSystem.cpp -o CMakeFiles/buscadminas_unificado.dir/src/common/ScoreSystem.cpp.s
 
 # Object files for target buscadminas_unificado
 buscadminas_unificado_OBJECTS = \

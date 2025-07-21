@@ -25,6 +25,10 @@ struct GameScore {
   
 class ScoreCalculator {  
 public:  
+    static void saveMultiplayerScoreToCSV(const GameScore& score, const std::string& playerName = "Player");  
+    static std::vector<GameScore> loadMultiplayerScoresFromCSV();  
+    static void displayMultiplayerHighScores();  
+    static void displayScoreSubmenu();
     static GameScore calculateScore(int difficulty, int rows, int cols,   
                                   double gameTime, int clicks, int flags, bool won);  
     static void displayScore(const GameScore& score);  
@@ -43,6 +47,7 @@ public:
   
 private:  
     static const std::string CSV_FILE;  
+    static const std::string MULTIPLAYER_CSV_FILE;
     static std::string getDifficultyName(int difficulty);  
     static int calculateTimeBonus(double gameTime, int difficulty);  
     static int calculateEfficiencyBonus(int clicks, int totalCells, bool won);  

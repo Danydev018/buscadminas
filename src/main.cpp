@@ -184,7 +184,7 @@ int main() {
             }  
         } else if (opcion == 3) {  
             // AGREGADO - Opción para ver puntuaciones altas  
-            ScoreCalculator::displayHighScores();  
+            ScoreCalculator::displayScoreSubmenu(); 
         } else if (opcion == 4) {  
             std::cout << "¡Hasta luego!" << std::endl;  
             break;  
