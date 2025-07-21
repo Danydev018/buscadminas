@@ -42,7 +42,7 @@ void Server::stop() {
 void Server::discoveryListener() {  
     discoverySocket = socket(AF_INET, SOCK_DGRAM, 0);  
     if (discoverySocket == -1) {  
-        std::cerr << "Error creando socket UDP" << std::endl;  
+        std::cerr << "/nError creando socket UDP" << std::endl;  
         return;  
     }  
       
@@ -58,7 +58,7 @@ void Server::discoveryListener() {
     addr.sin_addr.s_addr = INADDR_ANY;  
       
     if (bind(discoverySocket, (sockaddr*)&addr, sizeof(addr)) == -1) {  
-        std::cerr << "Error en bind UDP" << std::endl;  
+        std::cerr << "/nError en bind UDP" << std::endl;  
         close(discoverySocket);  
         return;  
     }  
@@ -85,14 +85,14 @@ void Server::discoveryListener() {
 void Server::gameLoop() {  
     int srvSock = socket(AF_INET, SOCK_STREAM, 0);  
     if (srvSock == -1) {  
-        std::cerr << "Error creando socket TCP" << std::endl;  
+        std::cerr << "\nError creando socket TCP" << std::endl;  
         return;  
     }  
 
     //reutilizar el puerto  
     int opt = 1;  
     if (setsockopt(srvSock, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) == -1) {  
-        std::cerr << "Error configurando SO_REUSEADDR" << std::endl;  
+        std::cerr << "\nError configurando SO_REUSEADDR" << std::endl;  
         close(srvSock);  
         return;  
     }
@@ -103,13 +103,13 @@ void Server::gameLoop() {
     srvAddr.sin_addr.s_addr = INADDR_ANY;  
       
     if (bind(srvSock, (sockaddr*)&srvAddr, sizeof(srvAddr)) == -1) {  
-        std::cerr << "Error en bind TCP" << std::endl;  
+        std::cerr << "\nError en bind TCP" << std::endl;  
         close(srvSock);  
         return;  
     }  
       
     if (listen(srvSock, 1) == -1) {  
-        std::cerr << "Error en listen" << std::endl;  
+        std::cerr << "\nError en listen" << std::endl;  
         close(srvSock);  
         return;  
     }  
@@ -118,7 +118,7 @@ void Server::gameLoop() {
     gotoxy(1, 1);  
     drawFrameAroundBoard(4, 2, board.cols(), board.rows()); 
     board.drawGotoxy(4, 2);  
-    gotoxy(board.cols(), board.rows() + 4);  
+    gotoxy(2 , board.rows() + 3);  
     std::cout << "Esperando cliente…\n";  
     int clientSock = accept(srvSock, nullptr, nullptr);  
     if (clientSock == -1) {  
@@ -126,7 +126,7 @@ void Server::gameLoop() {
         close(srvSock);  
         return;  
     }  
-    gotoxy(board.cols(), board.rows() + 6);
+    gotoxy(2, board.rows() + 4);
     std::cout << "Cliente conectado\n";  
   
     // Enviar configuración del juego  
@@ -137,7 +137,7 @@ void Server::gameLoop() {
     gi.mines = static_cast<uint8_t>(M);  
       
     if (NetworkUtils::safeSend(clientSock, &gi, sizeof(gi)) <= 0) {  
-        std::cerr << "Error enviando configuración del juego" << std::endl;  
+        std::cerr << "\nError enviando configuración del juego" << std::endl;  
         close(clientSock);  
         close(srvSock);  
         return;  

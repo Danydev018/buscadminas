@@ -27,28 +27,6 @@ void drawFrameAroundBoard(int startX, int startY, int width, int height) {
     std::cout << "╝";  
 }
 
-// void drawFrameAroundBoard(int startX, int startY, int width, int height) {  
-//     gotoxy(startX - 2, startY - 1);  
-//     std::cout << "╔";  
-//     // Cambiar de width * 3 a (width - 1) * 3 + 1  
-//     for (int i = 0; i < (width - 1) * 3 + 1; ++i) std::cout << "═";  
-//     std::cout << "╗";  
-  
-//     for (int j = 0; j < height; ++j) {  
-//         gotoxy(startX - 2, startY + j);  
-//         std::cout << "║";  
-//         // Cambiar de width * 3 a (width - 1) * 3 + 1  
-//         gotoxy(startX + (width - 1) * 3 + 1, startY + j);  
-//         std::cout << "║";  
-//     }  
-  
-//     gotoxy(startX - 2, startY + height);  
-//     std::cout << "╚";  
-//     // Cambiar de width * 3 a (width - 1) * 3 + 1  
-//     for (int i = 0; i < (width - 1) * 3 + 1; ++i) std::cout << "═";  
-//     std::cout << "╝";  
-// }
-
 KeyCode getKey() {
     termios oldt{}, newt{};
     tcgetattr(STDIN_FILENO, &oldt);

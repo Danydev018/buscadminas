@@ -170,9 +170,19 @@ void Board::drawGotoxy(int startX, int startY) const {
                 symbol = "💣";  
                 color = "\033[31m";  // Rojo  
             }  
-            else if (cell.adjacentMines > 0) {  
-                symbol = std::to_string(cell.adjacentMines);  
-                color = "\033[36m";  // Cyan  
+            else if (cell.adjacentMines > 0) {    
+                symbol = std::to_string(cell.adjacentMines);    
+                
+                // Esquema de colores según cantidad de minas  
+                if (cell.adjacentMines == 1 || cell.adjacentMines == 2) {  
+                    color = "\033[32m";  // Verde  
+                }  
+                else if (cell.adjacentMines == 3) {  
+                    color = "\033[33m";  // Amarillo  
+                }  
+                else { // >= 4 minas  
+                    color = "\033[31m";  // Rojo  
+                }  
             }
             else {  
                 symbol = " ";  // Espacio simple  
@@ -187,7 +197,7 @@ void Board::drawGotoxy(int startX, int startY) const {
         }  
     }  
       
-    gotoxy(2, startY + R * 2 + 2);  
+    gotoxy(2, startY + R + 2);  
     std::cout << "🔍 Tablero: " << R << "×" << C << " (" << M << " minas)\n";  
 }
     

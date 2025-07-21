@@ -327,34 +327,45 @@ void ScoreCalculator::displayLiveStats(int playerClicks, int playerFlags, double
                                      int boardRows) {  
     // Mostrar estadísticas en tiempo real  
     gotoxy(2, boardRows + 3);  
-    std::cout << "\033[94m┌─ ESTADÍSTICAS EN VIVO ────────────────────┐\033[0m\n";  
+    std::cout << "\033[94m┌─ ESTADÍSTICAS EN VIVO ───────────────────┐\033[0m\n";  
       
     gotoxy(2, boardRows + 4);  
     std::cout << "\033[94m│\033[0m \033[97m            " << std::setw(8) << std::left << playerName << "\033[0m";  
     std::cout << " vs      \033[97m" << std::setw(8) << std::left << opponentName << "\033[0m";  
-    std::cout << "     \033[94m│\033[0m\n";  
+    std::cout << "    \033[94m│\033[0m\n";  
       
     gotoxy(2, boardRows + 5);  
     std::cout << "\033[94m│\033[0m Clics: \033[93m      " << std::setw(3) << playerClicks << "\033[0m";  
     std::cout << "               \033[93m" << std::setw(3) << opponentClicks << "\033[0m";  
-    std::cout << "        \033[94m│\033[0m\n";  
+    std::cout << "       \033[94m│\033[0m\n";  
       
     gotoxy(2, boardRows + 6);  
     std::cout << "\033[94m│\033[0m Banderas:    \033[92m" << std::setw(2) << playerFlags << "\033[0m";  
     std::cout << "                \033[92m" << std::setw(2) << opponentFlags << "\033[0m";  
-    std::cout << "         \033[94m│\033[0m\n";  
+    std::cout << "        \033[94m│\033[0m\n";  
       
     gotoxy(2, boardRows + 7);  
-    std::cout << "\033[94m│\033[0m Tiempo: \033[96m           " << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
-    std::cout << "                   \033[94m│\033[0m\n";  
+    std::string timeStr = std::to_string(gameTime);  
+    timeStr = timeStr.substr(0, timeStr.find('.') + 2) + "s"; // Mantener 1 decimal  
+    int padding = 23 - timeStr.length(); // 23 es el espacio total disponible  
+    std::cout << "\033[94m│\033[0m Tiempo: \033[96m" << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
+    std::cout << std::string(padding, ' ') << "          \033[94m│\033[0m\n"; 
       
     gotoxy(2, boardRows + 8);  
-    std::cout << "\033[94m└───────────────────────────────────────────┘\033[0m\n";  
+    std::cout << "\033[94m└──────────────────────────────────────────┘\033[0m\n";  
 }
 
 void ScoreCalculator::updateTimeOnly(double gameTime, int boardRows) {  
-    gotoxy(2, boardRows + 9);  
+    gotoxy(2, boardRows + 6);  
+    std::cout << "\033[94m┌──────────────────────────────────────────┐\033[0m\n";
+
+    gotoxy(2, boardRows + 7);  
+    std::string timeStr = std::to_string(gameTime);  
+    timeStr = timeStr.substr(0, timeStr.find('.') + 2) + "s"; // Mantener 1 decimal  
+    int padding = 29 - timeStr.length(); // 29 es el espacio total disponible para esta función  
     std::cout << "\033[94m│\033[0m Tiempo: \033[96m" << std::fixed << std::setprecision(1) << gameTime << "s\033[0m";  
-    std::cout << "                           \033[94m│\033[0m";  
-    std::cout.flush();  
+    std::cout << std::string(padding, ' ') << "    \033[94m│\033[0m";  
+
+    gotoxy(2, boardRows + 8);  
+    std::cout << "\033[94m└──────────────────────────────────────────┘\033[0m\n";
 }
